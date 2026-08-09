@@ -156,6 +156,15 @@
     <button id="next">NEXT ▶</button>
   </div>
 
+  <section id="activity" style="display:none;margin-top:56px;border-top:1px solid var(--line);padding-top:32px">
+    <h2 class="narrow" style="margin:0 0 6px;font-size:24px;letter-spacing:.14em;color:var(--bright)">SOURCE-REPO ACTIVITY</h2>
+    <p style="color:var(--dim);margin:0 0 20px;max-width:70ch" id="activityCap"></p>
+    <div class="mangrid">
+      <div class="manbox"><h3 style="color:var(--rust)">RELEASES NEWER THAN THE HUB SNAPSHOT</h3><div id="actUpdates" style="display:grid;gap:10px;font:12px var(--mono)"></div></div>
+      <div class="manbox"><h3 style="color:var(--olive)">NEWLY DISCOVERED REPOS</h3><div id="actDiscovered" style="display:grid;gap:10px;font:12px var(--mono)"></div></div>
+    </div>
+  </section>
+
   <section class="manual">
     <h2 class="narrow">FIELD MANUAL — INSTALLING MODS</h2>
     <p>Check each version's framework constraint (shown per version) before installing. Always read the mod's own description — many list extra steps or dependencies, which the depot shows per version.</p>
@@ -197,7 +206,27 @@ let debounceT=null,seq=0;
 
 // static mode (GitHub Pages / file://): pre-exported JSON instead of the API
 const STATIC=!!window.EXFIL_STATIC;
-let DB=null;
+let DB=null,UPDATES=null;
+async function loadUpdates(){
+  try{
+    const r=await fetch("data/updates.json");
+    if(!r.ok)return;
+    const u=await r.json();
+    u.map={};
+    (u.updates||[]).forEach(rel=>(rel.mods||[]).forEach(m=>{const k=m.kind+"-"+m.id;if(!u.map[k])u.map[k]=rel;}));
+    UPDATES=u;
+    renderActivity();render();
+  }catch(e){}
+}
+function renderActivity(){
+  if(!UPDATES)return;
+  const ups=(UPDATES.updates||[]).slice(0,15),disc=(UPDATES.discovered||[]).slice(0,15);
+  if(!ups.length&&!disc.length)return;
+  $("#activityCap").textContent=`Tracking ${UPDATES.repos_tracked} source repositories - checked ${String(UPDATES.generated_at||"").slice(0,16).replace("T"," ")} UTC. After the hub's shutdown, mod development continues on the authors' own repositories; this feed watches them.`;
+  $("#actUpdates").innerHTML=ups.map(u=>`<div><a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.repo)}</a> <span style="color:var(--bright)">${esc(u.tag||"")}</span> <span style="color:var(--dim)">${day(u.published_at)}</span>${u.prerelease?` <span class="badge" style="color:var(--amber)">PRE</span>`:""}<div style="color:var(--dim)">${esc((u.mods||[]).map(m=>m.name).join(", "))}</div></div>`).join("")||`<div style="color:var(--dim)">none yet</div>`;
+  $("#actDiscovered").innerHTML=disc.map(d=>`<div><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.repo)}</a> <span style="color:var(--dim)">*${d.stars} - ${day(d.pushed_at)}</span><div style="color:var(--dim)">${esc(d.description||"")}</div></div>`).join("")||`<div style="color:var(--dim)">none yet</div>`;
+  $("#activity").style.display="block";
+}
 async function staticAll(){
   if(!DB){
     const [s,m]=await Promise.all([fetch("data/summary.json"),fetch("data/mods.json")]);
@@ -208,6 +237,7 @@ async function staticAll(){
 
 function badges(m){
   const b=[];
+  if(UPDATES&&UPDATES.map[m.kind+"-"+m.id])b.push(["UPDATE ON REPO",RUST]);
   if(m.featured)b.push(["FEATURED",OLIVE]);
   if(m.has_local||m.local_path)b.push(["LOCAL",OLIVE]);
   if(m.has_github)b.push(["GITHUB",STEEL]);
@@ -364,6 +394,10 @@ async function openDetail(kind,id){
     </div>
     ${thumb?`<img class="thumb" src="${esc(thumb)}" alt="">`:""}
     <p style="color:#c9cdba;margin:16px 0 20px">${esc(d.teaser||"")}</p>
+    ${UPDATES&&UPDATES.map[kind+"-"+id]?(u=>`<div style="margin-bottom:14px;border:1px solid ${RUST};background:#1e150f;padding:12px 16px;font:12.5px var(--mono)">
+      <div style="letter-spacing:.16em;color:${RUST};font-size:11px;margin-bottom:4px">NEWER ON SOURCE REPO</div>
+      <a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.repo)} ${esc(u.tag||"")} - ${day(u.published_at)} ↗</a>
+    </div>`)(UPDATES.map[kind+"-"+id]):""}
     <div class="meta">
       <div class="k">HUB DOWNLOADS</div><div>${(+d.downloads||0).toLocaleString()}</div>
       <div class="k">FAVOURITES</div><div>${(+d.favourites||0).toLocaleString()}</div>
@@ -418,7 +452,7 @@ window.addEventListener("keydown",e=>{
 });
 
 if(STATIC){$("#fLocal").style.display="none"}
-loadStats();loadCats();loadMods();
+loadStats();loadCats();loadMods();loadUpdates();
 </script>
 </body>
 </html>

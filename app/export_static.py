@@ -100,8 +100,16 @@ def main():
         d = cat / f"{kind}s"
         if not d.is_dir():
             continue
+        # license / category / source_code_links only ride on the index
+        # (fetched with include=...); merge them into each detail record
+        idx_file = cat / f"{kind}s-index.json"
+        index_by_id = {x["id"]: x for x in load_json(idx_file)} if idx_file.exists() else {}
         for f in sorted(d.glob("*.json"), key=lambda p: int(p.stem)):
             m = load_json(f)
+            idx = index_by_id.get(m["id"], {})
+            for key_ in ("license", "category", "source_code_links"):
+                if not m.get(key_) and idx.get(key_):
+                    m[key_] = idx[key_]
             versions = m.get("all_versions") or []
             lv = latest(versions)
             thumb = (m.get("thumbnail") or "").split("?")[0].rstrip("/").rsplit("/", 1)[-1]

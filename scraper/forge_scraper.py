@@ -230,7 +230,11 @@ def download_file(api: Api, url: str, dest_dir: Path, expected: int | None,
         try:
             with api.session.get(url, stream=True, timeout=(10, 300), allow_redirects=True) as r:
                 if github_links is not None and is_github(r.url):
-                    github_links.append({"label": label, "url": url, "github_url": r.url.split("?")[0]})
+                    # prefer the github.com/{owner}/{repo}/... hop from the redirect
+                    # chain over the terminal assets-CDN URL (repo is recoverable)
+                    chain = [h.url for h in r.history] + [r.url]
+                    best = next((u for u in chain if urlparse(u).netloc.lower() == "github.com"), r.url)
+                    github_links.append({"label": label, "url": url, "github_url": best.split("?")[0]})
                     return 0
                 if r.status_code != 200:
                     if attempt == 3:

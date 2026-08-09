@@ -30,19 +30,16 @@ jobs:
         run: |
           if [ "$(date -u +%Y%m%d)" -gt 20260812 ]; then
             echo "SKIP=1" >> "$GITHUB_ENV"
-            echo "Upstream hub is offline; the archive is frozen. Nothing to do."
+            echo "Hub is offline; skipping the hub scrape. GitHub tracking still runs."
           fi
 
       - uses: actions/checkout@v4
-        if: env.SKIP != '1'
 
       - uses: actions/setup-python@v5
-        if: env.SKIP != '1'
         with:
           python-version: "3.13"
 
       - run: pip install requests
-        if: env.SKIP != '1'
 
       - name: Scrape catalogue metadata
         if: env.SKIP != '1'
@@ -58,8 +55,12 @@ jobs:
         if: env.SKIP != '1'
         run: python app/export_static.py --data forge-data --out site
 
+      - name: Track source repos on GitHub (versions + discovery)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scraper/github_tracker.py --site site
+
       - name: Commit refreshed export
-        if: env.SKIP != '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -72,11 +73,8 @@ jobs:
           fi
 
       - uses: actions/configure-pages@v5
-        if: env.SKIP != '1'
       - uses: actions/upload-pages-artifact@v3
-        if: env.SKIP != '1'
         with:
           path: site
       - uses: actions/deploy-pages@v4
-        if: env.SKIP != '1'
         id: deployment
