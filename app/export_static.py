@@ -80,8 +80,11 @@ def main():
     external = load_link_log(data, "failures.jsonl")
     categories = {c["id"]: c for c in load_json(cat / "categories.json")}
 
-    # thumbnails (small images only)
+    # thumbnails (small images only); keep any already exported (CI runs
+    # scrape metadata only and would otherwise drop committed thumbs)
     thumbs = {}
+    if (out / "thumbs").is_dir() and not args.no_thumbs:
+        thumbs = {f.name: f"thumbs/{f.name}" for f in (out / "thumbs").iterdir() if f.is_file()}
     tdir = data / "files" / "thumbnails"
     if tdir.is_dir() and not args.no_thumbs:
         (out / "thumbs").mkdir(exist_ok=True)

@@ -1,0 +1,82 @@
+name: scrape-and-publish
+
+# Scheduled scrape of the upstream hub's open API -> static export -> Pages.
+# The hub shuts down 2026-08-12; after that date the job no-ops green.
+# CI scrapes CATALOGUE METADATA ONLY - never mod files (size + licensing).
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Date guard (hub offline after 2026-08-12)
+        run: |
+          if [ "$(date -u +%Y%m%d)" -gt 20260812 ]; then
+            echo "SKIP=1" >> "$GITHUB_ENV"
+            echo "Upstream hub is offline; the archive is frozen. Nothing to do."
+          fi
+
+      - uses: actions/checkout@v4
+        if: env.SKIP != '1'
+
+      - uses: actions/setup-python@v5
+        if: env.SKIP != '1'
+        with:
+          python-version: "3.13"
+
+      - run: pip install requests
+        if: env.SKIP != '1'
+
+      - name: Scrape catalogue metadata
+        if: env.SKIP != '1'
+        run: python scraper/forge_scraper.py metadata --out forge-data --no-addons
+        # addons are re-enabled below; kept as a separate step so a late
+        # addon-endpoint failure cannot discard a completed mod scrape
+      - name: Scrape addon metadata
+        if: env.SKIP != '1'
+        continue-on-error: true
+        run: python scraper/forge_scraper.py metadata --out forge-data
+
+      - name: Export static site
+        if: env.SKIP != '1'
+        run: python app/export_static.py --data forge-data --out site
+
+      - name: Commit refreshed export
+        if: env.SKIP != '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site
+          if git diff --cached --quiet; then
+            echo "No catalogue changes."
+          else
+            git commit -m "chore: refresh static export (scheduled scrape)"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+        if: env.SKIP != '1'
+      - uses: actions/upload-pages-artifact@v3
+        if: env.SKIP != '1'
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        if: env.SKIP != '1'
+        id: deployment
