@@ -1,0 +1,25 @@
+EXFIL Mod Depot deployed.
+
+1. Reach the UI:
+{{- if .Values.ingress.enabled }}
+   http{{ if .Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.host }}
+{{- else }}
+   kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "exfil-depot.fullname" . }} 8484:{{ .Values.service.port }}
+   then open http://localhost:8484
+{{- end }}
+
+2. Archive data:
+{{- if or .Values.forgeData.existingClaim .Values.forgeData.hostPath }}
+   mounted read-only at /data/forge (imported automatically at startup).
+{{- else }}
+   WARNING: no forgeData.existingClaim or forgeData.hostPath set - the catalogue is EMPTY.
+   Provide the scraped archive and upgrade the release.
+{{- end }}
+
+3. Re-import after updating the archive:
+   kubectl -n {{ .Release.Namespace }} exec deploy/{{ include "exfil-depot.fullname" . }} -- \
+     env FORCE_REIMPORT=1 python importer.py
+
+4. Query the database directly:
+   kubectl -n {{ .Release.Namespace }} exec -it sts/{{ include "exfil-depot.fullname" . }}-db -- \
+     psql -U {{ .Values.postgres.username }} {{ .Values.postgres.database }}

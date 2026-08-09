@@ -1,0 +1,6 @@
+apiVersion: v2
+name: exfil-depot
+description: EXFIL Mod Depot - self-hosted archive browser (Postgres + FastAPI + single-file UI)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

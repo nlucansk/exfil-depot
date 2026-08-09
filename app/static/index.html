@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXFIL — Mod Depot</title>
+<style>
+  :root{
+    --bg:#121410; --panel:#15180f; --panel2:#1a1d15; --line:#2e3324; --line2:#23271b;
+    --ink:#d8dcc8; --bright:#eef0e2; --dim:#8e9480; --faint:#5d634f;
+    --olive:#a3b25c; --rust:#c2622f; --steel:#8ea3b0; --amber:#9a7a4f;
+    --mono:ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Helvetica,Arial,sans-serif}
+  a{color:var(--olive)} a:hover{color:var(--rust)}
+  ::selection{background:#3c4228;color:var(--bright)}
+  input,select,button{font:inherit;color:inherit}
+  input:focus-visible,select:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--olive);outline-offset:1px}
+  ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:5px}::-webkit-scrollbar-track{background:transparent}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
+  .m{font-family:var(--mono)}
+  .narrow{font-family:'Arial Narrow','Helvetica Neue',Arial,sans-serif;font-weight:700}
+  header{border-bottom:1px solid var(--line);background:#14170f}
+  .head{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between;padding:28px 0 22px}
+  .kicker{font:11px var(--mono);letter-spacing:.22em;color:var(--dim);margin-bottom:10px}
+  h1{margin:0;font-size:52px;letter-spacing:.1em;line-height:1;color:var(--bright)}
+  h1 span{color:var(--olive);font-size:22px;letter-spacing:.28em;margin-left:16px;vertical-align:6px}
+  .tag{margin:12px 0 0;color:var(--dim);max-width:52ch;text-wrap:pretty}
+  .tiles{display:flex;gap:22px}
+  .tile{border-left:1px solid var(--line);padding-left:14px}
+  .tile b{display:block;font:700 26px var(--mono)}
+  .tile i{display:block;font:10px var(--mono);font-style:normal;letter-spacing:.14em;color:var(--dim);margin-top:2px}
+  .hist{display:flex;align-items:flex-end;gap:4px;height:44px}
+  .hist div{width:16px;background:#525c33}
+  .histlab{display:flex;gap:4px;margin-top:4px}
+  .histlab div{width:16px;font:9px var(--mono);color:var(--dim);text-align:center}
+  .histcap{font:10px var(--mono);letter-spacing:.12em;color:var(--dim);margin-top:6px}
+  .toolbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+  .toolrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 0}
+  .searchbox{position:relative;flex:1 1 260px;max-width:420px}
+  .searchbox input{width:100%;background:var(--panel2);border:1px solid var(--line);padding:8px 34px 8px 12px;font:13px var(--mono);color:var(--ink);border-radius:0}
+  .searchbox span{position:absolute;right:8px;top:7px;font:11px var(--mono);color:var(--dim);border:1px solid var(--line);padding:1px 6px}
+  .chip{background:var(--panel2);color:var(--dim);border:1px solid var(--line);padding:6px 12px;font:12px var(--mono);letter-spacing:.05em;cursor:pointer}
+  .chip.on{background:#39411f;color:#d9e3ac;border-color:var(--olive)}
+  select.chip{cursor:pointer}
+  .resline{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:16px 0 10px}
+  .resline .n{font:12px var(--mono);color:var(--dim)}
+  .resline .keys{font:11px var(--mono);color:var(--faint)}
+  .tbl{border:1px solid var(--line);background:var(--panel)}
+  .thead,.trow{display:grid;grid-template-columns:minmax(0,1fr) 110px 80px 110px 120px;gap:16px;padding:9px 16px;align-items:center}
+  .thead{border-bottom:1px solid var(--line);font:10px var(--mono);letter-spacing:.16em;color:var(--dim)}
+  .trow{border-bottom:1px solid var(--line2);cursor:pointer;padding:10px 16px}
+  .trow:hover,.trow.cur{background:#1b1f14}
+  .trow.cur{background:#262b1c}
+  .nm{font:13px var(--mono)} .nm em{color:var(--dim);font-style:normal} .nm b{color:var(--bright)}
+  .teaser{color:var(--dim);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+  .badge{font:9px var(--mono);letter-spacing:.1em;padding:1px 5px;border:1px solid currentColor}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+  .card{border:1px solid var(--line);background:#171a11;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+  .card:hover{border-color:#525c33;background:#1b1f14}
+  .card.cur{background:#262b1c}
+  .card .desc{color:#a9ae9b;font-size:12.5px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .card .foot{display:flex;gap:14px;font:11px var(--mono);color:var(--dim);border-top:1px solid var(--line2);padding-top:8px}
+  .empty{border:1px dashed var(--line);padding:56px 24px;text-align:center;margin-top:12px}
+  .pager{display:flex;align-items:center;gap:12px;justify-content:center;padding:18px 0 0}
+  .pager button{background:var(--panel2);border:1px solid var(--line);color:var(--ink);padding:6px 16px;font:12px var(--mono);cursor:pointer}
+  .pager button:hover{border-color:#525c33}
+  .pager span{font:12px var(--mono);color:var(--dim)}
+  .manual{margin-top:56px;border-top:1px solid var(--line);padding-top:32px;padding-bottom:48px}
+  .manual h2{margin:0 0 6px;font-size:24px;letter-spacing:.14em;color:var(--bright)}
+  .manual>p{color:var(--dim);margin:0 0 20px;max-width:70ch}
+  .mangrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .manbox{border:1px solid var(--line);background:var(--panel);padding:18px 20px}
+  .manbox h3{font:11px var(--mono);font-weight:400;letter-spacing:.16em;margin:0 0 8px}
+  .manbox ol,.manbox ul{margin:0;padding-left:18px;color:#a9ae9b;font-size:13px;display:grid;gap:6px}
+  .manbox code{font-family:var(--mono);color:var(--ink)}
+  footer{border-top:1px solid var(--line);background:#14170f}
+  footer .wrap{padding:16px 24px;font:11px var(--mono);color:var(--faint);letter-spacing:.06em}
+  .ovl{position:fixed;inset:0;z-index:20;display:none}
+  .ovl.open{display:block}
+  .scrim{position:absolute;inset:0;background:rgba(8,9,6,.65)}
+  .drawer{position:absolute;right:0;top:0;bottom:0;width:min(620px,100%);background:#181b12;border-left:1px solid #3a4128;overflow:auto;padding:28px 30px}
+  .drawer h2{margin:2px 0 0;font-size:30px;letter-spacing:.04em;color:var(--bright);word-break:break-word}
+  .meta{display:grid;grid-template-columns:130px 1fr;gap:8px 16px;font:12.5px var(--mono);border:1px solid var(--line);background:var(--panel);padding:16px 18px}
+  .meta .k{color:var(--dim)}
+  .deschtml{color:#c9cdba;font-size:13.5px;margin:18px 0 0;max-width:100%;overflow-wrap:break-word}
+  .deschtml img{max-width:100%} .deschtml h1,.deschtml h2,.deschtml h3{color:var(--bright);letter-spacing:.03em}
+  .deschtml code,.deschtml pre{font-family:var(--mono);background:#1e2216;padding:1px 5px}
+  .deschtml pre{padding:10px;overflow-x:auto}
+  .ver{border:1px solid var(--line);background:var(--panel);padding:14px 16px;margin-top:10px}
+  .ver .vh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .ver .vh b{font:14px var(--mono);color:var(--bright)}
+  .vlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .vlinks a,.vlinks span{font:11px var(--mono);letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;text-decoration:none}
+  .deps{margin-top:8px;font:12px var(--mono);color:var(--dim)}
+  .deps a{cursor:pointer}
+  .thumb{width:100%;max-height:180px;object-fit:cover;border:1px solid var(--line);margin-top:14px}
+  .warn{font:11px var(--mono);color:var(--rust);margin-top:2px}
+  .x{background:transparent;border:1px solid var(--line);color:var(--dim);padding:4px 10px;font:14px var(--mono);cursor:pointer;flex-shrink:0}
+  .x:hover{color:var(--bright);border-color:#525c33}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <div style="min-width:280px">
+      <div class="kicker">SELF-HOSTED MOD ARCHIVE · LAST SCRAPE <span id="scrapedAt">…</span></div>
+      <h1 class="narrow">EXFIL<span>MOD DEPOT</span></h1>
+      <p class="tag">Containerized archive of the community mod hub for the 4.1 framework — catalogue, versions, dependencies and locally preserved files, served from your own database.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end">
+      <div class="tiles" id="tiles"></div>
+      <div>
+        <div class="hist" id="hist"></div>
+        <div class="histlab" id="histlab"></div>
+        <div class="histcap">ACTIVITY · LAST UPDATE BY YEAR</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap toolrow">
+    <div class="searchbox">
+      <input id="q" placeholder="Search name, teaser, author…" aria-label="Search mods">
+      <span>/</span>
+    </div>
+    <select id="cat" class="chip" aria-label="Category"><option value="">ALL CATEGORIES</option></select>
+    <button class="chip" id="fFeat">FEATURED</button>
+    <button class="chip" id="fNoLic">NO LICENSE</button>
+    <button class="chip" id="fLocal">LOCAL COPY</button>
+    <button class="chip" id="fAddons">ADDONS</button>
+    <select id="sort" class="chip" aria-label="Sort order">
+      <option value="downloads">SORT: DOWNLOADS</option>
+      <option value="updated">SORT: UPDATED</option>
+      <option value="created">SORT: CREATED</option>
+      <option value="name">SORT: NAME</option>
+    </select>
+    <div style="display:flex;margin-left:auto;gap:6px">
+      <button class="chip on" id="vTable">TABLE</button>
+      <button class="chip" id="vCards">CARDS</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="resline">
+    <div class="n" id="resline">…</div>
+    <div class="keys">/ SEARCH &nbsp; ↑↓ ROWS &nbsp; ↵ OPEN &nbsp; ESC CLOSE</div>
+  </div>
+  <div id="results"></div>
+  <div class="pager">
+    <button id="prev">◀ PREV</button>
+    <span id="pageline"></span>
+    <button id="next">NEXT ▶</button>
+  </div>
+
+  <section class="manual">
+    <h2 class="narrow">FIELD MANUAL — INSTALLING MODS</h2>
+    <p>Check each version's framework constraint (shown per version) before installing. Always read the mod's own description — many list extra steps or dependencies, which the depot shows per version.</p>
+    <div class="mangrid">
+      <div class="manbox"><h3 style="color:var(--olive)">CLIENT MOD (BEPINEX)</h3>
+        <ol><li>Use the archived file (LOCAL) or the recorded GitHub release.</li>
+        <li>Extract into the game folder so the DLL lands in <code>BepInEx/plugins/</code>.</li>
+        <li>Launch via the framework launcher; check the BepInEx log for load errors.</li></ol></div>
+      <div class="manbox"><h3 style="color:var(--steel)">SERVER MOD</h3>
+        <ol><li>Use the archived file (LOCAL) or the recorded GitHub release.</li>
+        <li>Extract into <code>user/mods/</code> — one folder per mod containing <code>package.json</code>.</li>
+        <li>Restart the server; watch the console for the mod's load line.</li></ol></div>
+      <div class="manbox"><h3 style="color:var(--rust)">GENERAL RULES</h3>
+        <ul><li>Match the version's constraint to your framework version (4.1.x) — mismatches are the top cause of breakage.</li>
+        <li>Back up <code>user/profiles/</code> before installing.</li>
+        <li>Install dependencies first — the depot lists them per version.</li></ul></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">EXFIL — MOD DEPOT · SELF-HOSTED PERSONAL ARCHIVE · CATALOGUE + PRESERVED COMMUNITY FILES · NOT AFFILIATED WITH ANY GAME PUBLISHER</div></footer>
+
+<div class="ovl" id="ovl">
+  <div class="scrim" onclick="closeSel()"></div>
+  <div class="drawer" role="dialog" aria-label="Mod details" id="drawer"></div>
+</div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const OLIVE="#a3b25c",RUST="#c2622f",STEEL="#8ea3b0",DIM="#8e9480",AMBER="#9a7a4f";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const day=s=>String(s||"").slice(0,10)||"—";
+const fmtN=n=>{n=+n||0;return n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"k":String(n)};
+const fmtB=n=>{if(!n)return"";const u=["B","KB","MB","GB"];let i=0;while(n>=1024&&i<3){n/=1024;i++}return n.toFixed(i?1:0)+" "+u[i]};
+
+const S={q:"",cat:"",featured:false,noLic:false,local:false,addons:false,sort:"downloads",page:0,view:"table",items:[],total:0,cursor:-1,perPage:25};
+let debounceT=null,seq=0;
+
+function badges(m){
+  const b=[];
+  if(m.featured)b.push(["FEATURED",OLIVE]);
+  if(m.has_local||m.local_path)b.push(["LOCAL",OLIVE]);
+  if(m.has_github)b.push(["GITHUB",STEEL]);
+  if(!m.license_name)b.push(["NO LICENSE",DIM]);
+  if(m.contains_ads)b.push(["ADS",AMBER]);
+  if(m.contains_ai_content)b.push(["AI",AMBER]);
+  if(m.cheat_notice)b.push(["CHEAT NOTICE",RUST]);
+  return b.map(([t,c])=>`<span class="badge" style="color:${c}">${t}</span>`).join(" ");
+}
+
+async function loadStats(){
+  const r=await fetch("/api/stats");if(!r.ok)return;
+  const s=await r.json();
+  $("#scrapedAt").textContent=s.scraped_at?s.scraped_at.slice(0,16).replace("T"," ")+" UTC":"UNKNOWN";
+  const tiles=[[s.mods,"CATALOGUED","#eef0e2"],[s.addons,"ADDONS",STEEL],[s.versions,"VERSIONS",DIM],
+               [s.local_files,"LOCAL FILES",s.local_files?OLIVE:DIM],[fmtN(s.total_downloads),"HUB DOWNLOADS",OLIVE]];
+  $("#tiles").innerHTML=tiles.map(([n,l,c])=>`<div class="tile"><b style="color:${c}">${n}</b><i>${l}</i></div>`).join("");
+  const act=s.activity||[],max=Math.max(1,...act.map(a=>+a.n));
+  $("#hist").innerHTML=act.map(a=>`<div title="${a.year}: ${a.n} mods" style="height:${Math.round(4+38*a.n/max)}px"></div>`).join("");
+  $("#histlab").innerHTML=act.map(a=>`<div>’${String(a.year).slice(2)}</div>`).join("");
+}
+
+async function loadCats(){
+  const r=await fetch("/api/categories");if(!r.ok)return;
+  const cats=await r.json();
+  $("#cat").innerHTML=`<option value="">ALL CATEGORIES</option>`+
+    cats.map(c=>`<option value="${c.id}">${esc(c.title.toUpperCase())} (${c.mod_count})</option>`).join("");
+}
+
+async function loadMods(){
+  const my=++seq;
+  const p=new URLSearchParams({q:S.q,sort:S.sort,page:S.page,per_page:S.perPage,kind:S.addons?"addon":"mod"});
+  if(S.cat)p.set("category",S.cat);
+  if(S.featured)p.set("featured","true");
+  if(S.noLic)p.set("no_license","true");
+  if(S.local)p.set("local_only","true");
+  const r=await fetch("/api/mods?"+p);
+  if(!r.ok||my!==seq)return;
+  const d=await r.json();
+  S.items=d.items;S.total=d.total;
+  render();
+}
+
+function rowName(m){
+  return `<div class="nm"><em>${esc(m.owner_name||"?")} /</em> <b>${esc(m.name)}</b> ${badges(m)}</div>
+          <div class="teaser">${esc(m.teaser||"No teaser provided.")}</div>`;
+}
+
+function render(){
+  const total=S.total,pages=Math.max(1,Math.ceil(total/S.perPage));
+  $("#resline").textContent=`${total} / ${total?"":""}${total} ${S.addons?"addons":"mods"}`+(S.q?` · “${S.q}”`:"");
+  $("#pageline").textContent=`PAGE ${S.page+1} / ${pages}`;
+  $("#prev").style.opacity=S.page>0?1:.35;
+  $("#next").style.opacity=S.page<pages-1?1:.35;
+  const res=$("#results");
+  if(!S.items.length){
+    res.innerHTML=`<div class="empty"><div class="narrow" style="font-size:22px;letter-spacing:.14em;color:${DIM}">NO MATCHES</div>
+      <p style="color:${DIM};margin:10px 0 18px">Nothing in the catalogue fits the current search and filters.</p>
+      <button class="chip" style="border-color:${OLIVE};color:${OLIVE}" onclick="resetAll()">RESET FILTERS</button></div>`;
+    return;
+  }
+  if(S.view==="table"){
+    res.innerHTML=`<div class="tbl">
+      <div class="thead"><div>MOD</div><div>CATEGORY</div><div>DL</div><div>UPDATED</div><div>FRAMEWORK</div></div>
+      ${S.items.map((m,i)=>`
+        <div class="trow ${i===S.cursor?"cur":""}" tabindex="0" role="button" data-i="${i}">
+          <div style="min-width:0">${rowName(m)}</div>
+          <div class="m" style="font-size:11px;letter-spacing:.08em;color:${OLIVE}">${esc((m.category||"—").toUpperCase())}</div>
+          <div class="m" style="font-size:12px">${fmtN(m.downloads)}</div>
+          <div class="m" style="font-size:12px;color:${DIM}">${day(m.updated_at)}</div>
+          <div class="m" style="font-size:12px;color:${DIM};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(m.latest_constraint||"—")}</div>
+        </div>`).join("")}
+    </div>`;
+  }else{
+    res.innerHTML=`<div class="cards">${S.items.map((m,i)=>`
+      <div class="card ${i===S.cursor?"cur":""}" tabindex="0" role="button" data-i="${i}">
+        <div class="nm" style="word-break:break-word"><em>${esc(m.owner_name||"?")} /</em> <b>${esc(m.name)}</b></div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap">
+          <span class="badge" style="color:${OLIVE}">${esc((m.category||"—").toUpperCase())}</span>${badges(m)}
+        </div>
+        <div class="desc">${esc(m.teaser||"No teaser provided.")}</div>
+        <div class="foot"><span style="color:var(--ink)">DL ${fmtN(m.downloads)}</span><span>upd ${day(m.updated_at)}</span><span style="margin-left:auto">${esc(m.latest_constraint||"")}</span></div>
+      </div>`).join("")}</div>`;
+  }
+  res.querySelectorAll("[data-i]").forEach(el=>{
+    el.addEventListener("click",()=>openSel(+el.dataset.i));
+    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openSel(+el.dataset.i)}});
+  });
+}
+
+async function openSel(i){
+  S.cursor=i;render();
+  const m=S.items[i];if(!m)return;
+  await openDetail(m.kind,m.id);
+}
+
+async function openDetail(kind,id){
+  const r=await fetch(`/api/mods/${kind}/${id}`);
+  if(!r.ok)return;
+  const d=await r.json();
+  const thumb=d.thumbnail_local||"";
+  const lic=d.license_name?(d.license_link?`<a href="${esc(d.license_link)}" target="_blank" rel="noopener">${esc(d.license_name)}</a>`:esc(d.license_name)):"— none";
+  const src=(d.source_code_links||[]).map(l=>`<div><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.url)} ↗</a></div>`).join("");
+  const vers=(d.versions||[]).map(v=>{
+    const links=[];
+    if(v.local_path)links.push(`<a href="${esc(v.local_path)}" style="color:${OLIVE};border-color:${OLIVE}">LOCAL FILE ↓</a>`);
+    if(v.github_url)links.push(`<a href="${esc(v.github_url)}" target="_blank" rel="noopener" style="color:${STEEL};border-color:${STEEL}">GITHUB ↗</a>`);
+    if(v.external_url)links.push(`<a href="${esc(v.external_url)}" target="_blank" rel="noopener" style="color:${AMBER};border-color:${AMBER}">EXTERNAL ↗</a>`);
+    if(!v.local_path&&v.forge_link)links.push(`<span style="color:${RUST};border-color:${RUST}" title="hub offline after 2026-08-12">HUB LINK — LIKELY DEAD</span>`);
+    const deps=(v.dependencies||[]).length?`<div class="deps">DEPENDS ON: ${v.dependencies.map(x=>`<a onclick="openDetail('mod',${x.id})">${esc(x.name||("#"+x.id))}</a>`).join(" · ")}</div>`:"";
+    return `<div class="ver">
+      <div class="vh"><b>v${esc(v.version)}</b>
+        <span class="m" style="font-size:11px;color:${OLIVE}">${esc(v.spt_version_constraint||"")}</span>
+        <span class="m" style="font-size:11px;color:${DIM}">${fmtB(v.content_length)}</span>
+        <span class="m" style="font-size:11px;color:${DIM}">DL ${fmtN(v.downloads)}</span>
+        <span class="m" style="font-size:11px;color:${DIM};margin-left:auto">${day(v.published_at)}</span></div>
+      <div class="vlinks">${links.join("")}</div>${deps}
+    </div>`;
+  }).join("");
+  $("#drawer").innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div style="min-width:0">
+        <div class="m" style="font-size:12px;color:${DIM}">${esc(d.owner_name||"?")} /</div>
+        <h2 class="narrow">${esc(d.name)}</h2>
+      </div>
+      <button class="x" onclick="closeSel()" aria-label="Close">✕</button>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:14px 0">
+      <span class="badge" style="color:${OLIVE}">${esc((d.category||"UNCATEGORIZED").toUpperCase())}</span>${badges(d)}
+    </div>
+    ${thumb?`<img class="thumb" src="${esc(thumb)}" alt="">`:""}
+    <p style="color:#c9cdba;margin:16px 0 20px">${esc(d.teaser||"")}</p>
+    <div class="meta">
+      <div class="k">HUB DOWNLOADS</div><div>${(+d.downloads||0).toLocaleString()}</div>
+      <div class="k">FAVOURITES</div><div>${(+d.favourites||0).toLocaleString()}</div>
+      <div class="k">CREATED</div><div>${day(d.created_at)}</div>
+      <div class="k">UPDATED</div><div>${day(d.updated_at)}</div>
+      <div class="k">LICENSE</div><div>${lic}</div>
+      <div class="k">GUID</div><div style="word-break:break-all">${esc(d.guid||"—")}</div>
+    </div>
+    ${src?`<div style="margin-top:14px" class="m">${src}<div class="warn">⚠ upstream sources may vanish — archive what you need</div></div>`:""}
+    <div style="margin-top:22px" class="m"><span style="font-size:11px;letter-spacing:.16em;color:${OLIVE}">VERSIONS (${(d.versions||[]).length})</span></div>
+    ${vers||`<div class="ver" style="color:${DIM}">No versions recorded.</div>`}
+    ${d.description_html?`<div style="margin-top:22px" class="m"><span style="font-size:11px;letter-spacing:.16em;color:${OLIVE}">DESCRIPTION (ARCHIVED)</span></div><div class="deschtml">${d.description_html}</div>`:""}
+  `;
+  $("#ovl").classList.add("open");
+}
+
+function closeSel(){$("#ovl").classList.remove("open")}
+function resetAll(){S.q="";S.cat="";S.featured=S.noLic=S.local=S.addons=false;S.page=0;S.cursor=-1;$("#q").value="";$("#cat").value="";syncChips();loadMods()}
+function syncChips(){
+  $("#fFeat").classList.toggle("on",S.featured);
+  $("#fNoLic").classList.toggle("on",S.noLic);
+  $("#fLocal").classList.toggle("on",S.local);
+  $("#fAddons").classList.toggle("on",S.addons);
+  $("#vTable").classList.toggle("on",S.view==="table");
+  $("#vCards").classList.toggle("on",S.view==="cards");
+}
+function go(){S.page=0;S.cursor=-1;loadMods()}
+
+$("#q").addEventListener("input",e=>{S.q=e.target.value;clearTimeout(debounceT);debounceT=setTimeout(go,250)});
+$("#cat").addEventListener("change",e=>{S.cat=e.target.value;go()});
+$("#sort").addEventListener("change",e=>{S.sort=e.target.value;go()});
+$("#fFeat").addEventListener("click",()=>{S.featured=!S.featured;syncChips();go()});
+$("#fNoLic").addEventListener("click",()=>{S.noLic=!S.noLic;syncChips();go()});
+$("#fLocal").addEventListener("click",()=>{S.local=!S.local;syncChips();go()});
+$("#fAddons").addEventListener("click",()=>{S.addons=!S.addons;syncChips();go()});
+$("#vTable").addEventListener("click",()=>{S.view="table";syncChips();render()});
+$("#vCards").addEventListener("click",()=>{S.view="cards";syncChips();render()});
+$("#prev").addEventListener("click",()=>{if(S.page>0){S.page--;S.cursor=-1;loadMods()}});
+$("#next").addEventListener("click",()=>{if((S.page+1)*S.perPage<S.total){S.page++;S.cursor=-1;loadMods()}});
+
+window.addEventListener("keydown",e=>{
+  const el=document.activeElement,tag=el?el.tagName:"";
+  const typing=tag==="INPUT"||tag==="SELECT"||tag==="TEXTAREA";
+  if(e.key==="/"&&!typing){e.preventDefault();$("#q").focus()}
+  else if(e.key==="Escape"){if(typing)el.blur();else closeSel()}
+  else if(!typing&&(e.key==="ArrowDown"||e.key==="ArrowUp")){
+    e.preventDefault();
+    S.cursor=Math.max(0,Math.min(S.items.length-1,S.cursor+(e.key==="ArrowDown"?1:-1)));
+    render();
+  }
+  else if(!typing&&e.key==="Enter"&&S.cursor>=0&&!$("#ovl").classList.contains("open")){openSel(S.cursor)}
+});
+
+loadStats();loadCats();loadMods();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+name: exfil-mod-depot
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: exfil
+      POSTGRES_USER: exfil
+      POSTGRES_PASSWORD: exfil # local-only instance; not exposed on the host
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U exfil -d exfil"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: ./app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://exfil:exfil@db:5432/exfil
+      FORGE_DATA: /data/forge
+      # set to "1" to force a full re-import at startup (e.g. after a new scrape)
+      FORCE_REIMPORT: "0"
+    volumes:
+      # the scraped archive (catalogue + files), mounted read-only
+      # set FORGE_DATA_PATH in .env (see .env.example); defaults to ./data/forge
+      - "${FORGE_DATA_PATH:-./data/forge}:/data/forge:ro"
+    ports:
+      - "8484:8000"
+
+volumes:
+  pgdata:

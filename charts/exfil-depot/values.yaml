@@ -1,0 +1,46 @@
+# EXFIL Mod Depot - Helm values
+
+image:
+  # built from ./app by the repo's GitHub Actions workflow; or build and push your own
+  repository: ghcr.io/nlucansk/exfil-depot
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  host: depot.local
+  annotations: {}
+  tls: []
+  # - secretName: depot-tls
+  #   hosts: [depot.local]
+
+resources: {}
+  # limits: {memory: 512Mi}
+  # requests: {cpu: 100m, memory: 256Mi}
+
+# force a catalogue re-import at pod start (also see NOTES.txt for one-off reimports)
+forceReimport: false
+
+# The scraped archive (directory containing catalogue/ and files/).
+# Provide EXACTLY ONE of the following; it is mounted read-only at /data/forge.
+forgeData:
+  existingClaim: ""   # name of a PVC that holds the archive
+  hostPath: ""        # absolute path on the node (single-node clusters)
+
+postgres:
+  image: postgres:17-alpine
+  database: exfil
+  username: exfil
+  password: exfil      # CHANGE THIS or use existingSecret
+  # existing secret with keys: username, password, database (overrides the above)
+  existingSecret: ""
+  storage: 2Gi
+  storageClassName: ""
+  resources: {}

@@ -1,0 +1,13 @@
+# local data / archives are never committed
+data/
+*.jsonl
+
+# local environment overrides
+.env
+
+# python
+__pycache__/
+*.pyc
+
+# helm packaging artifacts
+charts/*.tgz
