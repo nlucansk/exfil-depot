@@ -26,6 +26,24 @@ Kubernetes? `helm install depot charts/exfil-depot ...` — see
 **[docs/SELF-HOSTING.md](docs/SELF-HOSTING.md)** for the full guide (compose,
 Helm, getting data into the cluster, re-imports, backups, access control).
 
+## Static / GitHub Pages mode
+
+The same UI also runs with **no backend at all**: `app/export_static.py` reads
+the archive and emits `site/` — pre-computed JSON (summary, searchable index,
+per-mod detail with versions + dependencies) plus thumbnails, with search,
+filters and sorting done client-side. `.github/workflows/pages.yml` deploys
+`site/` to GitHub Pages on push.
+
+```bash
+python app/export_static.py            # regenerate site/ from the archive
+git add site && git commit -m "update static export" && git push
+```
+
+Deliberate limitation: the static export contains **catalogue metadata and
+links only** — never the archived mod files. A public page must not
+redistribute other authors' work; per-version GitHub/external links point to
+the authors' own hosting instead.
+
 ## API
 
 - `GET /api/stats` — totals, category breakdown, activity histogram

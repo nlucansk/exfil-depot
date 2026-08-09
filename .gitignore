@@ -1,5 +1,6 @@
-# local data / archives are never committed
-data/
+# local data / archives are never committed (root-level only;
+# site/data/ is the committed static export)
+/data/
 *.jsonl
 
 # local environment overrides

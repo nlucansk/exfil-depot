@@ -195,6 +195,17 @@ const fmtB=n=>{if(!n)return"";const u=["B","KB","MB","GB"];let i=0;while(n>=1024
 const S={q:"",cat:"",featured:false,noLic:false,local:false,addons:false,sort:"downloads",page:0,view:"table",items:[],total:0,cursor:-1,perPage:25};
 let debounceT=null,seq=0;
 
+// static mode (GitHub Pages / file://): pre-exported JSON instead of the API
+const STATIC=!!window.EXFIL_STATIC;
+let DB=null;
+async function staticAll(){
+  if(!DB){
+    const [s,m]=await Promise.all([fetch("data/summary.json"),fetch("data/mods.json")]);
+    DB={summary:await s.json(),mods:await m.json()};
+  }
+  return DB;
+}
+
 function badges(m){
   const b=[];
   if(m.featured)b.push(["FEATURED",OLIVE]);
@@ -208,8 +219,9 @@ function badges(m){
 }
 
 async function loadStats(){
-  const r=await fetch("/api/stats");if(!r.ok)return;
-  const s=await r.json();
+  let s;
+  if(STATIC){ s=(await staticAll()).summary; }
+  else { const r=await fetch("/api/stats");if(!r.ok)return; s=await r.json(); }
   $("#scrapedAt").textContent=s.scraped_at?s.scraped_at.slice(0,16).replace("T"," ")+" UTC":"UNKNOWN";
   const tiles=[[s.mods,"CATALOGUED","#eef0e2"],[s.addons,"ADDONS",STEEL],[s.versions,"VERSIONS",DIM],
                [s.local_files,"LOCAL FILES",s.local_files?OLIVE:DIM],[fmtN(s.total_downloads),"HUB DOWNLOADS",OLIVE]];
@@ -220,14 +232,37 @@ async function loadStats(){
 }
 
 async function loadCats(){
-  const r=await fetch("/api/categories");if(!r.ok)return;
-  const cats=await r.json();
+  let cats;
+  if(STATIC){ cats=(await staticAll()).summary.categories; }
+  else { const r=await fetch("/api/categories");if(!r.ok)return; cats=await r.json(); }
   $("#cat").innerHTML=`<option value="">ALL CATEGORIES</option>`+
     cats.map(c=>`<option value="${c.id}">${esc(c.title.toUpperCase())} (${c.mod_count})</option>`).join("");
 }
 
 async function loadMods(){
   const my=++seq;
+  if(STATIC){
+    const {mods}=await staticAll();
+    if(my!==seq)return;
+    const ql=S.q.trim().toLowerCase();
+    const list=mods.filter(m=>{
+      if(m.kind!==(S.addons?"addon":"mod"))return false;
+      if(ql&&!["name","teaser","owner_name","slug","guid"].some(k=>(m[k]||"").toLowerCase().includes(ql)))return false;
+      if(S.cat&&m.category_id!==+S.cat)return false;
+      if(S.featured&&!m.featured)return false;
+      if(S.noLic&&m.license_name)return false;
+      if(S.local&&!m.has_local)return false;
+      return true;
+    });
+    list.sort({downloads:(a,b)=>(b.downloads||0)-(a.downloads||0),
+               updated:(a,b)=>String(b.updated_at||"").localeCompare(String(a.updated_at||"")),
+               created:(a,b)=>String(b.created_at||"").localeCompare(String(a.created_at||"")),
+               name:(a,b)=>String(a.name).localeCompare(String(b.name))}[S.sort]);
+    S.total=list.length;
+    S.items=list.slice(S.page*S.perPage,(S.page+1)*S.perPage);
+    render();
+    return;
+  }
   const p=new URLSearchParams({q:S.q,sort:S.sort,page:S.page,per_page:S.perPage,kind:S.addons?"addon":"mod"});
   if(S.cat)p.set("category",S.cat);
   if(S.featured)p.set("featured","true");
@@ -294,7 +329,7 @@ async function openSel(i){
 }
 
 async function openDetail(kind,id){
-  const r=await fetch(`/api/mods/${kind}/${id}`);
+  const r=await fetch(STATIC?`data/detail/${kind}-${id}.json`:`/api/mods/${kind}/${id}`);
   if(!r.ok)return;
   const d=await r.json();
   const thumb=d.thumbnail_local||"";
@@ -382,6 +417,7 @@ window.addEventListener("keydown",e=>{
   else if(!typing&&e.key==="Enter"&&S.cursor>=0&&!$("#ovl").classList.contains("open")){openSel(S.cursor)}
 });
 
+if(STATIC){$("#fLocal").style.display="none"}
 loadStats();loadCats();loadMods();
 </script>
 </body>
