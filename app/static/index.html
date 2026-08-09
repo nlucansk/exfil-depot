@@ -130,6 +130,7 @@
     <button class="chip" id="fFeat">FEATURED</button>
     <button class="chip" id="fNoLic">NO LICENSE</button>
     <button class="chip" id="fLocal">LOCAL COPY</button>
+    <button class="chip" id="fNoRepo">NO REPO</button>
     <button class="chip" id="fAddons">ADDONS</button>
     <select id="sort" class="chip" aria-label="Sort order">
       <option value="downloads">SORT: DOWNLOADS</option>
@@ -201,7 +202,7 @@ const day=s=>String(s||"").slice(0,10)||"—";
 const fmtN=n=>{n=+n||0;return n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"k":String(n)};
 const fmtB=n=>{if(!n)return"";const u=["B","KB","MB","GB"];let i=0;while(n>=1024&&i<3){n/=1024;i++}return n.toFixed(i?1:0)+" "+u[i]};
 
-const S={q:"",cat:"",featured:false,noLic:false,local:false,addons:false,sort:"downloads",page:0,view:"table",items:[],total:0,cursor:-1,perPage:25};
+const S={q:"",cat:"",featured:false,noLic:false,local:false,noRepo:false,addons:false,sort:"downloads",page:0,view:"table",items:[],total:0,cursor:-1,perPage:25};
 let debounceT=null,seq=0;
 
 // static mode (GitHub Pages / file://): pre-exported JSON instead of the API
@@ -212,8 +213,9 @@ async function loadUpdates(){
     const r=await fetch("data/updates.json");
     if(!r.ok)return;
     const u=await r.json();
-    u.map={};
+    u.map={};u.deadMap={};
     (u.updates||[]).forEach(rel=>(rel.mods||[]).forEach(m=>{const k=m.kind+"-"+m.id;if(!u.map[k])u.map[k]=rel;}));
+    (u.dead_repos||[]).forEach(dr=>(dr.mods||[]).forEach(m=>{const k=m.kind+"-"+m.id;if(!u.deadMap[k])u.deadMap[k]=dr.repo;}));
     UPDATES=u;
     renderActivity();render();
   }catch(e){}
@@ -222,7 +224,8 @@ function renderActivity(){
   if(!UPDATES)return;
   const ups=(UPDATES.updates||[]).slice(0,15),disc=(UPDATES.discovered||[]).slice(0,15);
   if(!ups.length&&!disc.length)return;
-  $("#activityCap").textContent=`Tracking ${UPDATES.repos_tracked} source repositories - checked ${String(UPDATES.generated_at||"").slice(0,16).replace("T"," ")} UTC. After the hub's shutdown, mod development continues on the authors' own repositories; this feed watches them.`;
+  const dead=(UPDATES.dead_repos||[]).length;
+  $("#activityCap").textContent=`Tracking ${UPDATES.repos_tracked} source repositories - checked ${String(UPDATES.generated_at||"").slice(0,16).replace("T"," ")} UTC.`+(dead?` ${dead} linked repo(s) no longer resolve on GitHub.`:"")+` After the hub's shutdown, mod development continues on the authors' own repositories; this feed watches them.`;
   $("#actUpdates").innerHTML=ups.map(u=>`<div><a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.repo)}</a> <span style="color:var(--bright)">${esc(u.tag||"")}</span> <span style="color:var(--dim)">${day(u.published_at)}</span>${u.prerelease?` <span class="badge" style="color:var(--amber)">PRE</span>`:""}<div style="color:var(--dim)">${esc((u.mods||[]).map(m=>m.name).join(", "))}</div></div>`).join("")||`<div style="color:var(--dim)">none yet</div>`;
   $("#actDiscovered").innerHTML=disc.map(d=>`<div><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.repo)}</a> <span style="color:var(--dim)">*${d.stars} - ${day(d.pushed_at)}</span><div style="color:var(--dim)">${esc(d.description||"")}</div></div>`).join("")||`<div style="color:var(--dim)">none yet</div>`;
   $("#activity").style.display="block";
@@ -238,6 +241,9 @@ async function staticAll(){
 function badges(m){
   const b=[];
   if(UPDATES&&UPDATES.map[m.kind+"-"+m.id])b.push(["UPDATE ON REPO",RUST]);
+  if(m.obtainable===false)b.push(["UNOBTAINABLE",RUST]);
+  if(m.no_repo)b.push(["NO REPO",AMBER]);
+  if(m.dep_problems)b.push(["DEP RISK",AMBER]);
   if(m.featured)b.push(["FEATURED",OLIVE]);
   if(m.has_local||m.local_path)b.push(["LOCAL",OLIVE]);
   if(m.has_github)b.push(["GITHUB",STEEL]);
@@ -255,6 +261,7 @@ async function loadStats(){
   $("#scrapedAt").textContent=s.scraped_at?s.scraped_at.slice(0,16).replace("T"," ")+" UTC":"UNKNOWN";
   const tiles=[[s.mods,"CATALOGUED","#eef0e2"],[s.addons,"ADDONS",STEEL],[s.versions,"VERSIONS",DIM],
                [s.local_files,"LOCAL FILES",s.local_files?OLIVE:DIM],[fmtN(s.total_downloads),"HUB DOWNLOADS",OLIVE]];
+  if(s.audit){tiles.push([s.audit.no_repo,"NO REPO",AMBER],[s.audit.unobtainable,"UNOBTAINABLE",s.audit.unobtainable?RUST:DIM]);}
   $("#tiles").innerHTML=tiles.map(([n,l,c])=>`<div class="tile"><b style="color:${c}">${n}</b><i>${l}</i></div>`).join("");
   const act=s.activity||[],max=Math.max(1,...act.map(a=>+a.n));
   $("#hist").innerHTML=act.map(a=>`<div title="${a.year}: ${a.n} mods" style="height:${Math.round(4+38*a.n/max)}px"></div>`).join("");
@@ -282,6 +289,7 @@ async function loadMods(){
       if(S.featured&&!m.featured)return false;
       if(S.noLic&&m.license_name)return false;
       if(S.local&&!m.has_local)return false;
+      if(S.noRepo&&!m.no_repo)return false;
       return true;
     });
     list.sort({downloads:(a,b)=>(b.downloads||0)-(a.downloads||0),
@@ -371,7 +379,11 @@ async function openDetail(kind,id){
     if(v.github_url)links.push(`<a href="${esc(v.github_url)}" target="_blank" rel="noopener" style="color:${STEEL};border-color:${STEEL}">GITHUB ↗</a>`);
     if(v.external_url)links.push(`<a href="${esc(v.external_url)}" target="_blank" rel="noopener" style="color:${AMBER};border-color:${AMBER}">EXTERNAL ↗</a>`);
     if(!v.local_path&&v.forge_link)links.push(`<span style="color:${RUST};border-color:${RUST}" title="hub offline after 2026-08-12">HUB LINK — LIKELY DEAD</span>`);
-    const deps=(v.dependencies||[]).length?`<div class="deps">DEPENDS ON: ${v.dependencies.map(x=>`<a onclick="openDetail('mod',${x.id})">${esc(x.name||("#"+x.id))}</a>`).join(" · ")}</div>`:"";
+    const deps=(v.dependencies||[]).length?`<div class="deps">DEPENDS ON: ${v.dependencies.map(x=>
+      x.status==="missing"
+        ?`<span style="color:${RUST}">${esc(x.name||("#"+x.id))} [MISSING FROM CATALOGUE]</span>`
+        :`<a onclick="openDetail('mod',${x.id})"${x.status==="at-risk"?` style="color:${AMBER}"`:""}>${esc(x.name||("#"+x.id))}${x.status==="at-risk"?" [AT RISK]":""}</a>`
+    ).join(" · ")}</div>`:"";
     return `<div class="ver">
       <div class="vh"><b>v${esc(v.version)}</b>
         <span class="m" style="font-size:11px;color:${OLIVE}">${esc(v.spt_version_constraint||"")}</span>
@@ -398,6 +410,10 @@ async function openDetail(kind,id){
       <div style="letter-spacing:.16em;color:${RUST};font-size:11px;margin-bottom:4px">NEWER ON SOURCE REPO</div>
       <a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.repo)} ${esc(u.tag||"")} - ${day(u.published_at)} ↗</a>
     </div>`)(UPDATES.map[kind+"-"+id]):""}
+    ${UPDATES&&UPDATES.deadMap&&UPDATES.deadMap[kind+"-"+id]?`<div style="margin-bottom:14px;border:1px solid ${RUST};background:#1e150f;padding:12px 16px;font:12.5px var(--mono)">
+      <div style="letter-spacing:.16em;color:${RUST};font-size:11px;margin-bottom:4px">SOURCE REPO UNREACHABLE</div>
+      <span style="color:#c9cdba">${esc(UPDATES.deadMap[kind+"-"+id])} no longer resolves on GitHub (deleted or renamed).</span>
+    </div>`:""}
     <div class="meta">
       <div class="k">HUB DOWNLOADS</div><div>${(+d.downloads||0).toLocaleString()}</div>
       <div class="k">FAVOURITES</div><div>${(+d.favourites||0).toLocaleString()}</div>
@@ -405,6 +421,8 @@ async function openDetail(kind,id){
       <div class="k">UPDATED</div><div>${day(d.updated_at)}</div>
       <div class="k">LICENSE</div><div>${lic}</div>
       <div class="k">GUID</div><div style="word-break:break-all">${esc(d.guid||"—")}</div>
+      ${d.required_by?`<div class="k">REQUIRED BY</div><div style="color:${OLIVE}">${d.required_by} mod${d.required_by>1?"s":""} (load-bearing)</div>`:""}
+      ${d.no_repo?`<div class="k">SOURCE</div><div style="color:${AMBER}">no source repository — archive is the only copy</div>`:""}
     </div>
     ${src?`<div style="margin-top:14px" class="m">${src}<div class="warn">⚠ upstream sources may vanish — archive what you need</div></div>`:""}
     <div style="margin-top:22px" class="m"><span style="font-size:11px;letter-spacing:.16em;color:${OLIVE}">VERSIONS (${(d.versions||[]).length})</span></div>
@@ -420,6 +438,7 @@ function syncChips(){
   $("#fFeat").classList.toggle("on",S.featured);
   $("#fNoLic").classList.toggle("on",S.noLic);
   $("#fLocal").classList.toggle("on",S.local);
+  $("#fNoRepo").classList.toggle("on",S.noRepo);
   $("#fAddons").classList.toggle("on",S.addons);
   $("#vTable").classList.toggle("on",S.view==="table");
   $("#vCards").classList.toggle("on",S.view==="cards");
@@ -432,6 +451,7 @@ $("#sort").addEventListener("change",e=>{S.sort=e.target.value;go()});
 $("#fFeat").addEventListener("click",()=>{S.featured=!S.featured;syncChips();go()});
 $("#fNoLic").addEventListener("click",()=>{S.noLic=!S.noLic;syncChips();go()});
 $("#fLocal").addEventListener("click",()=>{S.local=!S.local;syncChips();go()});
+$("#fNoRepo").addEventListener("click",()=>{S.noRepo=!S.noRepo;syncChips();go()});
 $("#fAddons").addEventListener("click",()=>{S.addons=!S.addons;syncChips();go()});
 $("#vTable").addEventListener("click",()=>{S.view="table";syncChips();render()});
 $("#vCards").addEventListener("click",()=>{S.view="cards";syncChips();render()});
@@ -451,7 +471,7 @@ window.addEventListener("keydown",e=>{
   else if(!typing&&e.key==="Enter"&&S.cursor>=0&&!$("#ovl").classList.contains("open")){openSel(S.cursor)}
 });
 
-if(STATIC){$("#fLocal").style.display="none"}
+if(STATIC){$("#fLocal").style.display="none"}else{$("#fNoRepo").style.display="none"}
 loadStats();loadCats();loadMods();loadUpdates();
 </script>
 </body>

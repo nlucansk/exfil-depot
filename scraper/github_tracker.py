@@ -180,6 +180,14 @@ def main():
     updates = updates[:args.max_updates]
     print(f"[versions] {len(updates)} repos have releases newer than the hub snapshot")
 
+    # linked repos GraphQL could not resolve: deleted or renamed on GitHub
+    dead_repos = [
+        {"repo": repo_display[k],
+         "mods": [{"kind": m["kind"], "id": m["id"], "name": m["name"]} for m in repo_mods[k]]}
+        for k in sorted(known) if k not in releases
+    ]
+    print(f"[versions] {len(dead_repos)} linked repos no longer resolve (deleted or renamed)")
+
     # --- phase 2: discovery -------------------------------------------------
     discovered, seen = [], set()
     for q in SEARCH_QUERIES:
@@ -204,6 +212,7 @@ def main():
         "repos_tracked": len(known),
         "updates": updates,
         "discovered": discovered,
+        "dead_repos": dead_repos,
     }
     dest = Path(args.site) / "data" / "updates.json"
     dest.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
