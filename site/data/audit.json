@@ -72,6 +72,11 @@
   },
   {
    "kind": "mod",
+   "id": 273,
+   "mod": "alevesThings"
+  },
+  {
+   "kind": "mod",
    "id": 356,
    "mod": "Weapon Properties Modification"
   },
@@ -122,6 +127,11 @@
   },
   {
    "kind": "mod",
+   "id": 492,
+   "mod": "Lots of Loot"
+  },
+  {
+   "kind": "mod",
    "id": 506,
    "mod": "The Double Agent"
   },
@@ -152,6 +162,11 @@
   },
   {
    "kind": "mod",
+   "id": 602,
+   "mod": "notGreg's Scope Tweaks"
+  },
+  {
+   "kind": "mod",
    "id": 609,
    "mod": "Priscilu Special Weapons"
   },
@@ -177,6 +192,11 @@
   },
   {
    "kind": "mod",
+   "id": 654,
+   "mod": "Holster Any Gun"
+  },
+  {
+   "kind": "mod",
    "id": 660,
    "mod": "Bootlegger"
   },
@@ -184,11 +204,6 @@
    "kind": "mod",
    "id": 669,
    "mod": "Loot Randomiser"
-  },
-  {
-   "kind": "mod",
-   "id": 695,
-   "mod": "JoshJ5Hawk Loot Boxes"
   },
   {
    "kind": "mod",
@@ -214,6 +229,11 @@
    "kind": "mod",
    "id": 712,
    "mod": "Eyes of a Trader - view loot value"
+  },
+  {
+   "kind": "mod",
+   "id": 716,
+   "mod": "Snofielf's Balanced Night Vision"
   },
   {
    "kind": "mod",
@@ -267,6 +287,11 @@
   },
   {
    "kind": "mod",
+   "id": 773,
+   "mod": "Hultafors dead blow hammer"
+  },
+  {
+   "kind": "mod",
    "id": 774,
    "mod": "Battle for Dormitory"
   },
@@ -302,8 +327,8 @@
   },
   {
    "kind": "mod",
-   "id": 831,
-   "mod": "Callsign"
+   "id": 834,
+   "mod": "QBZ-03 Chinese Rifle 5.56x45 Export Version"
   },
   {
    "kind": "mod",
@@ -452,8 +477,28 @@
   },
   {
    "kind": "mod",
+   "id": 974,
+   "mod": "EFT SCOPE AND RED DOT SIGHT OVERHAUL BY GEFF HANNIGAN - Reupload"
+  },
+  {
+   "kind": "mod",
    "id": 978,
    "mod": "\"Jeovani\": Arms dealer or CIA Asset?"
+  },
+  {
+   "kind": "mod",
+   "id": 982,
+   "mod": "The Reisen"
+  },
+  {
+   "kind": "mod",
+   "id": 988,
+   "mod": "Q HONEY BADGER by CARL MAKES MODS"
+  },
+  {
+   "kind": "mod",
+   "id": 991,
+   "mod": "M16A4 BY Miralyn"
   },
   {
    "kind": "mod",
@@ -487,6 +532,11 @@
   },
   {
    "kind": "mod",
+   "id": 1028,
+   "mod": "Tokarev Mod 1 Extreme"
+  },
+  {
+   "kind": "mod",
    "id": 1034,
    "mod": "Realistic Lighting for Tarkov"
   },
@@ -507,8 +557,18 @@
   },
   {
    "kind": "mod",
+   "id": 1042,
+   "mod": "Algorithmic Barter Randomizer"
+  },
+  {
+   "kind": "mod",
    "id": 1047,
    "mod": "ShAK-12 Kit"
+  },
+  {
+   "kind": "mod",
+   "id": 1051,
+   "mod": "G36 Mod 0 Extreme"
   },
   {
    "kind": "mod",
@@ -602,8 +662,18 @@
   },
   {
    "kind": "mod",
+   "id": 1114,
+   "mod": "Igor - Grenade Trader with Quests"
+  },
+  {
+   "kind": "mod",
    "id": 1119,
    "mod": "Bobitec's MORE STIM INJECTORS"
+  },
+  {
+   "kind": "mod",
+   "id": 1123,
+   "mod": "Anastasia From Zenitco"
   },
   {
    "kind": "mod",
@@ -642,6 +712,11 @@
   },
   {
    "kind": "mod",
+   "id": 1142,
+   "mod": "Oskar The Baltic Smuggler"
+  },
+  {
+   "kind": "mod",
    "id": 1144,
    "mod": "FAIR PRESET WITH BIGGER STASH"
   },
@@ -649,11 +724,6 @@
    "kind": "mod",
    "id": 1147,
    "mod": "Progressive Container"
-  },
-  {
-   "kind": "mod",
-   "id": 1148,
-   "mod": "Mr. B the Bitcoin Trader"
   },
   {
    "kind": "mod",
@@ -707,6 +777,11 @@
   },
   {
    "kind": "mod",
+   "id": 1177,
+   "mod": "Vasyl the Mercenary"
+  },
+  {
+   "kind": "mod",
    "id": 1181,
    "mod": "IntelCenterUnlockFlea"
   },
@@ -752,8 +827,18 @@
   },
   {
    "kind": "mod",
+   "id": 1198,
+   "mod": "DRIP Legacy Collection"
+  },
+  {
+   "kind": "mod",
    "id": 1200,
    "mod": "Gigabeef's \"Tarkov Movie\" soundtrack replacer"
+  },
+  {
+   "kind": "mod",
+   "id": 1202,
+   "mod": "14.0 CONTENT PREVIEW - GUNS,GEAR,AMMO AND ATTACHMENTS ADDED"
   },
   {
    "kind": "mod",
@@ -772,6 +857,11 @@
   },
   {
    "kind": "mod",
+   "id": 1207,
+   "mod": "Weightless Ammo"
+  },
+  {
+   "kind": "mod",
    "id": 1209,
    "mod": "Health per Level REBOOT"
   },
@@ -784,6 +874,11 @@
    "kind": "mod",
    "id": 1211,
    "mod": "alevesthings ported + additional patch"
+  },
+  {
+   "kind": "mod",
+   "id": 1212,
+   "mod": "SUPPLIER (FORKED)"
   },
   {
    "kind": "mod",
@@ -817,13 +912,13 @@
   },
   {
    "kind": "mod",
-   "id": 1224,
-   "mod": "Fox - Ammo Duplicator"
+   "id": 1223,
+   "mod": "Le Castle Vania Music Pack"
   },
   {
    "kind": "mod",
-   "id": 1228,
-   "mod": "Grimdark Menu Music"
+   "id": 1224,
+   "mod": "Fox - Ammo Duplicator"
   },
   {
    "kind": "mod",
@@ -887,6 +982,11 @@
   },
   {
    "kind": "mod",
+   "id": 1282,
+   "mod": "Nujabes Music"
+  },
+  {
+   "kind": "mod",
    "id": 1284,
    "mod": "War Heads"
   },
@@ -894,6 +994,11 @@
    "kind": "mod",
    "id": 1287,
    "mod": "Yuri The Rat"
+  },
+  {
+   "kind": "mod",
+   "id": 1289,
+   "mod": "Watch Animations - Updated"
   },
   {
    "kind": "mod",
@@ -947,8 +1052,18 @@
   },
   {
    "kind": "mod",
+   "id": 1365,
+   "mod": "Realistic Stims (3.11 UPDATE)"
+  },
+  {
+   "kind": "mod",
    "id": 1366,
    "mod": "Penguin's FTHS 2 Pack"
+  },
+  {
+   "kind": "mod",
+   "id": 1367,
+   "mod": "Penguin's Seal Drip"
   },
   {
    "kind": "mod",
@@ -984,6 +1099,11 @@
    "kind": "mod",
    "id": 1376,
    "mod": "Penguin's Drug Collectables"
+  },
+  {
+   "kind": "mod",
+   "id": 1377,
+   "mod": "WTT- CZ Scorpion Evo 3"
   },
   {
    "kind": "mod",
@@ -1037,6 +1157,11 @@
   },
   {
    "kind": "mod",
+   "id": 1408,
+   "mod": "Manual Experience Multiplier for Each Skills (M.E.M.E.S)"
+  },
+  {
+   "kind": "mod",
    "id": 1411,
    "mod": "WTT- Heckler & Koch G3"
   },
@@ -1044,11 +1169,6 @@
    "kind": "mod",
    "id": 1412,
    "mod": "SPT-AKI Traditional Chinese (TW) Translation"
-  },
-  {
-   "kind": "mod",
-   "id": 1423,
-   "mod": "Immersive Compass (EN|RU)"
   },
   {
    "kind": "mod",
@@ -1082,6 +1202,11 @@
   },
   {
    "kind": "mod",
+   "id": 1446,
+   "mod": "HK416 16in Heavy Barrel Realism Compatibility"
+  },
+  {
+   "kind": "mod",
    "id": 1447,
    "mod": "Brainrot playlist"
   },
@@ -1107,6 +1232,11 @@
   },
   {
    "kind": "mod",
+   "id": 1460,
+   "mod": "REALISM COMPATIBILITY FOR MASSIVESOFT WEAPONS"
+  },
+  {
+   "kind": "mod",
    "id": 1464,
    "mod": "Mosin Extension Realism mod compatibility"
   },
@@ -1124,6 +1254,11 @@
    "kind": "mod",
    "id": 1471,
    "mod": "14.9 Arena Update Preview"
+  },
+  {
+   "kind": "mod",
+   "id": 1476,
+   "mod": "SiulSC's Aircraft"
   },
   {
    "kind": "mod",
@@ -1147,8 +1282,18 @@
   },
   {
    "kind": "mod",
+   "id": 1489,
+   "mod": "FALmonsta's Multicam Bundle SHITTYFIX to 3.8.x"
+  },
+  {
+   "kind": "mod",
    "id": 1490,
    "mod": "All The Seasons"
+  },
+  {
+   "kind": "mod",
+   "id": 1492,
+   "mod": "Penguin's Ushanka Emporium"
   },
   {
    "kind": "mod",
@@ -1179,6 +1324,11 @@
    "kind": "mod",
    "id": 1501,
    "mod": "Penguin's Doom Toy Collectables"
+  },
+  {
+   "kind": "mod",
+   "id": 1502,
+   "mod": "HD Vanilla Trader Pics"
   },
   {
    "kind": "mod",
@@ -1217,6 +1367,11 @@
   },
   {
    "kind": "mod",
+   "id": 1520,
+   "mod": "WTT - Patriot 1776"
+  },
+  {
+   "kind": "mod",
    "id": 1522,
    "mod": "REALISM COMPATIBILITY FOR KoKaZ93's AUG ATTATCHMENT PACK"
   },
@@ -1229,6 +1384,11 @@
    "kind": "mod",
    "id": 1524,
    "mod": "QBZ-97 5.56x45 Rifle"
+  },
+  {
+   "kind": "mod",
+   "id": 1528,
+   "mod": "Fin's AutoBalanceLevels but fixed"
   },
   {
    "kind": "mod",
@@ -1282,8 +1442,18 @@
   },
   {
    "kind": "mod",
+   "id": 1576,
+   "mod": "INFMEDS-Update BY WispsFlame"
+  },
+  {
+   "kind": "mod",
    "id": 1577,
    "mod": "Simple Translator"
+  },
+  {
+   "kind": "mod",
+   "id": 1578,
+   "mod": "ISO Submachine Gun"
   },
   {
    "kind": "mod",
@@ -1349,6 +1519,11 @@
    "kind": "mod",
    "id": 1604,
    "mod": "Stalker On Tarkov"
+  },
+  {
+   "kind": "mod",
+   "id": 1608,
+   "mod": "TasteTheRainbow Realism Patch"
   },
   {
    "kind": "mod",
@@ -1427,6 +1602,11 @@
   },
   {
    "kind": "mod",
+   "id": 1648,
+   "mod": "Old PK-06 Restoration"
+  },
+  {
+   "kind": "mod",
    "id": 1651,
    "mod": "Borkel's Crye Multicam"
   },
@@ -1487,6 +1667,11 @@
   },
   {
    "kind": "mod",
+   "id": 1670,
+   "mod": "Black Multicam Usec"
+  },
+  {
+   "kind": "mod",
    "id": 1671,
    "mod": "EMR  Bear"
   },
@@ -1517,8 +1702,18 @@
   },
   {
    "kind": "mod",
+   "id": 1685,
+   "mod": "Weasel Tweaks"
+  },
+  {
+   "kind": "mod",
    "id": 1686,
    "mod": "Realistic Bot Names"
+  },
+  {
+   "kind": "mod",
+   "id": 1687,
+   "mod": "Balaclava Eyeslot + Headwear Restrictions Removed"
   },
   {
    "kind": "mod",
@@ -1617,8 +1812,28 @@
   },
   {
    "kind": "mod",
+   "id": 1719,
+   "mod": "CCM - Sergiy Radius"
+  },
+  {
+   "kind": "mod",
    "id": 1722,
    "mod": "Rheinmetall LLM VarioRay tactical device"
+  },
+  {
+   "kind": "mod",
+   "id": 1725,
+   "mod": "Yilmaz"
+  },
+  {
+   "kind": "mod",
+   "id": 1726,
+   "mod": "Update 15 Backport"
+  },
+  {
+   "kind": "mod",
+   "id": 1727,
+   "mod": "WTT - M700 Long Action Realism Compatibility Patch"
   },
   {
    "kind": "mod",
@@ -1662,8 +1877,8 @@
   },
   {
    "kind": "mod",
-   "id": 1742,
-   "mod": "APEX/Titanfall theme resource pack(AIO)"
+   "id": 1741,
+   "mod": "WTT - Armory - M76"
   },
   {
    "kind": "mod",
@@ -1679,6 +1894,11 @@
    "kind": "mod",
    "id": 1746,
    "mod": "EMR Clothing Pack"
+  },
+  {
+   "kind": "mod",
+   "id": 1748,
+   "mod": "WTT - Armory - M249"
   },
   {
    "kind": "mod",
@@ -1699,6 +1919,11 @@
    "kind": "mod",
    "id": 1754,
    "mod": "WTT-M249 Realism Patch"
+  },
+  {
+   "kind": "mod",
+   "id": 1758,
+   "mod": "Coyote Trader (3.10.X Update)"
   },
   {
    "kind": "mod",
@@ -1724,11 +1949,6 @@
    "kind": "mod",
    "id": 1769,
    "mod": "HotDog & Nate's Chaos Queen (Bluey themed) AK-103 Mag!"
-  },
-  {
-   "kind": "mod",
-   "id": 1770,
-   "mod": "HotDog's Content Pack"
   },
   {
    "kind": "mod",
@@ -1762,6 +1982,11 @@
   },
   {
    "kind": "mod",
+   "id": 1793,
+   "mod": "M81 Gear Pack"
+  },
+  {
+   "kind": "mod",
    "id": 1794,
    "mod": "More Cases"
   },
@@ -1782,8 +2007,23 @@
   },
   {
    "kind": "mod",
+   "id": 1801,
+   "mod": "Summer and Autumn Clothing"
+  },
+  {
+   "kind": "mod",
+   "id": 1805,
+   "mod": "Alternative Trader Pics- Feminization"
+  },
+  {
+   "kind": "mod",
    "id": 1806,
    "mod": "Alternative Trader Pics- Feminization Anime version"
+  },
+  {
+   "kind": "mod",
+   "id": 1807,
+   "mod": "Alternative Trader Pics- Feminization Art version"
   },
   {
    "kind": "mod",
@@ -1807,8 +2047,23 @@
   },
   {
    "kind": "mod",
+   "id": 1814,
+   "mod": "Head Hunter (RUS)"
+  },
+  {
+   "kind": "mod",
+   "id": 1815,
+   "mod": "VR Gloves"
+  },
+  {
+   "kind": "mod",
    "id": 1816,
    "mod": "(RU) VIPER"
+  },
+  {
+   "kind": "mod",
+   "id": 1820,
+   "mod": "Item Finder Console"
   },
   {
    "kind": "mod",
@@ -1874,11 +2129,6 @@
    "kind": "mod",
    "id": 1845,
    "mod": "HotDog's 5.56x50mmE Adar Cartridge"
-  },
-  {
-   "kind": "mod",
-   "id": 1846,
-   "mod": "Reaper's Kaws-llectables"
   },
   {
    "kind": "mod",
@@ -2082,6 +2332,11 @@
   },
   {
    "kind": "mod",
+   "id": 1956,
+   "mod": "Choice Bound"
+  },
+  {
+   "kind": "mod",
    "id": 1957,
    "mod": "Arknights theme resource pack"
   },
@@ -2099,6 +2354,11 @@
    "kind": "mod",
    "id": 1975,
    "mod": "SPT inRaid Timer"
+  },
+  {
+   "kind": "mod",
+   "id": 1980,
+   "mod": "Extended Mags"
   },
   {
    "kind": "mod",
@@ -2129,6 +2389,11 @@
    "kind": "mod",
    "id": 2001,
    "mod": "UNP [RU.Loc.] - Ref - SPT Friendly Quests"
+  },
+  {
+   "kind": "mod",
+   "id": 2002,
+   "mod": "WTT - Armory - AN-94"
   },
   {
    "kind": "mod",
@@ -2169,6 +2434,11 @@
    "kind": "mod",
    "id": 2029,
    "mod": "AllTracers"
+  },
+  {
+   "kind": "mod",
+   "id": 2036,
+   "mod": "Custom Hideout Poster Replacer"
   },
   {
    "kind": "mod",
@@ -2262,6 +2532,16 @@
   },
   {
    "kind": "mod",
+   "id": 2128,
+   "mod": "Boxes at ReF (BARF) again"
+  },
+  {
+   "kind": "mod",
+   "id": 2131,
+   "mod": "Really Real Bots (3.10.5 SAIN Preset)"
+  },
+  {
+   "kind": "mod",
    "id": 2133,
    "mod": "Oops! All Boss PMCs!"
   },
@@ -2274,6 +2554,11 @@
    "kind": "mod",
    "id": 2141,
    "mod": "BrainTweaks"
+  },
+  {
+   "kind": "mod",
+   "id": 2143,
+   "mod": "Echoes of Tarkov - Requisitions"
   },
   {
    "kind": "mod",
@@ -2422,11 +2707,6 @@
   },
   {
    "kind": "mod",
-   "id": 2285,
-   "mod": "Better Fast Fire"
-  },
-  {
-   "kind": "mod",
    "id": 2286,
    "mod": "ShashaCZ - CS Knives"
   },
@@ -2494,11 +2774,6 @@
    "kind": "mod",
    "id": 2317,
    "mod": "Usenko TR-76 Geist Assualt Rifle"
-  },
-  {
-   "kind": "mod",
-   "id": 2322,
-   "mod": "SamSWAT Optics - SPT Realism Patch"
   },
   {
    "kind": "mod",
@@ -3009,6 +3284,11 @@
   },
   {
    "kind": "mod",
+   "id": 273,
+   "mod": "alevesThings"
+  },
+  {
+   "kind": "mod",
    "id": 356,
    "mod": "Weapon Properties Modification"
   },
@@ -3059,6 +3339,11 @@
   },
   {
    "kind": "mod",
+   "id": 492,
+   "mod": "Lots of Loot"
+  },
+  {
+   "kind": "mod",
    "id": 506,
    "mod": "The Double Agent"
   },
@@ -3089,6 +3374,11 @@
   },
   {
    "kind": "mod",
+   "id": 602,
+   "mod": "notGreg's Scope Tweaks"
+  },
+  {
+   "kind": "mod",
    "id": 609,
    "mod": "Priscilu Special Weapons"
   },
@@ -3114,6 +3404,11 @@
   },
   {
    "kind": "mod",
+   "id": 654,
+   "mod": "Holster Any Gun"
+  },
+  {
+   "kind": "mod",
    "id": 660,
    "mod": "Bootlegger"
   },
@@ -3121,11 +3416,6 @@
    "kind": "mod",
    "id": 669,
    "mod": "Loot Randomiser"
-  },
-  {
-   "kind": "mod",
-   "id": 695,
-   "mod": "JoshJ5Hawk Loot Boxes"
   },
   {
    "kind": "mod",
@@ -3151,6 +3441,11 @@
    "kind": "mod",
    "id": 712,
    "mod": "Eyes of a Trader - view loot value"
+  },
+  {
+   "kind": "mod",
+   "id": 716,
+   "mod": "Snofielf's Balanced Night Vision"
   },
   {
    "kind": "mod",
@@ -3204,6 +3499,11 @@
   },
   {
    "kind": "mod",
+   "id": 773,
+   "mod": "Hultafors dead blow hammer"
+  },
+  {
+   "kind": "mod",
    "id": 774,
    "mod": "Battle for Dormitory"
   },
@@ -3239,8 +3539,8 @@
   },
   {
    "kind": "mod",
-   "id": 831,
-   "mod": "Callsign"
+   "id": 834,
+   "mod": "QBZ-03 Chinese Rifle 5.56x45 Export Version"
   },
   {
    "kind": "mod",
@@ -3389,8 +3689,28 @@
   },
   {
    "kind": "mod",
+   "id": 974,
+   "mod": "EFT SCOPE AND RED DOT SIGHT OVERHAUL BY GEFF HANNIGAN - Reupload"
+  },
+  {
+   "kind": "mod",
    "id": 978,
    "mod": "\"Jeovani\": Arms dealer or CIA Asset?"
+  },
+  {
+   "kind": "mod",
+   "id": 982,
+   "mod": "The Reisen"
+  },
+  {
+   "kind": "mod",
+   "id": 988,
+   "mod": "Q HONEY BADGER by CARL MAKES MODS"
+  },
+  {
+   "kind": "mod",
+   "id": 991,
+   "mod": "M16A4 BY Miralyn"
   },
   {
    "kind": "mod",
@@ -3424,6 +3744,11 @@
   },
   {
    "kind": "mod",
+   "id": 1028,
+   "mod": "Tokarev Mod 1 Extreme"
+  },
+  {
+   "kind": "mod",
    "id": 1034,
    "mod": "Realistic Lighting for Tarkov"
   },
@@ -3444,8 +3769,18 @@
   },
   {
    "kind": "mod",
+   "id": 1042,
+   "mod": "Algorithmic Barter Randomizer"
+  },
+  {
+   "kind": "mod",
    "id": 1047,
    "mod": "ShAK-12 Kit"
+  },
+  {
+   "kind": "mod",
+   "id": 1051,
+   "mod": "G36 Mod 0 Extreme"
   },
   {
    "kind": "mod",
@@ -3539,8 +3874,18 @@
   },
   {
    "kind": "mod",
+   "id": 1114,
+   "mod": "Igor - Grenade Trader with Quests"
+  },
+  {
+   "kind": "mod",
    "id": 1119,
    "mod": "Bobitec's MORE STIM INJECTORS"
+  },
+  {
+   "kind": "mod",
+   "id": 1123,
+   "mod": "Anastasia From Zenitco"
   },
   {
    "kind": "mod",
@@ -3579,6 +3924,11 @@
   },
   {
    "kind": "mod",
+   "id": 1142,
+   "mod": "Oskar The Baltic Smuggler"
+  },
+  {
+   "kind": "mod",
    "id": 1144,
    "mod": "FAIR PRESET WITH BIGGER STASH"
   },
@@ -3586,11 +3936,6 @@
    "kind": "mod",
    "id": 1147,
    "mod": "Progressive Container"
-  },
-  {
-   "kind": "mod",
-   "id": 1148,
-   "mod": "Mr. B the Bitcoin Trader"
   },
   {
    "kind": "mod",
@@ -3644,6 +3989,11 @@
   },
   {
    "kind": "mod",
+   "id": 1177,
+   "mod": "Vasyl the Mercenary"
+  },
+  {
+   "kind": "mod",
    "id": 1181,
    "mod": "IntelCenterUnlockFlea"
   },
@@ -3689,8 +4039,18 @@
   },
   {
    "kind": "mod",
+   "id": 1198,
+   "mod": "DRIP Legacy Collection"
+  },
+  {
+   "kind": "mod",
    "id": 1200,
    "mod": "Gigabeef's \"Tarkov Movie\" soundtrack replacer"
+  },
+  {
+   "kind": "mod",
+   "id": 1202,
+   "mod": "14.0 CONTENT PREVIEW - GUNS,GEAR,AMMO AND ATTACHMENTS ADDED"
   },
   {
    "kind": "mod",
@@ -3709,6 +4069,11 @@
   },
   {
    "kind": "mod",
+   "id": 1207,
+   "mod": "Weightless Ammo"
+  },
+  {
+   "kind": "mod",
    "id": 1209,
    "mod": "Health per Level REBOOT"
   },
@@ -3721,6 +4086,11 @@
    "kind": "mod",
    "id": 1211,
    "mod": "alevesthings ported + additional patch"
+  },
+  {
+   "kind": "mod",
+   "id": 1212,
+   "mod": "SUPPLIER (FORKED)"
   },
   {
    "kind": "mod",
@@ -3754,13 +4124,13 @@
   },
   {
    "kind": "mod",
-   "id": 1224,
-   "mod": "Fox - Ammo Duplicator"
+   "id": 1223,
+   "mod": "Le Castle Vania Music Pack"
   },
   {
    "kind": "mod",
-   "id": 1228,
-   "mod": "Grimdark Menu Music"
+   "id": 1224,
+   "mod": "Fox - Ammo Duplicator"
   },
   {
    "kind": "mod",
@@ -3824,6 +4194,11 @@
   },
   {
    "kind": "mod",
+   "id": 1282,
+   "mod": "Nujabes Music"
+  },
+  {
+   "kind": "mod",
    "id": 1284,
    "mod": "War Heads"
   },
@@ -3831,6 +4206,11 @@
    "kind": "mod",
    "id": 1287,
    "mod": "Yuri The Rat"
+  },
+  {
+   "kind": "mod",
+   "id": 1289,
+   "mod": "Watch Animations - Updated"
   },
   {
    "kind": "mod",
@@ -3884,8 +4264,18 @@
   },
   {
    "kind": "mod",
+   "id": 1365,
+   "mod": "Realistic Stims (3.11 UPDATE)"
+  },
+  {
+   "kind": "mod",
    "id": 1366,
    "mod": "Penguin's FTHS 2 Pack"
+  },
+  {
+   "kind": "mod",
+   "id": 1367,
+   "mod": "Penguin's Seal Drip"
   },
   {
    "kind": "mod",
@@ -3921,6 +4311,11 @@
    "kind": "mod",
    "id": 1376,
    "mod": "Penguin's Drug Collectables"
+  },
+  {
+   "kind": "mod",
+   "id": 1377,
+   "mod": "WTT- CZ Scorpion Evo 3"
   },
   {
    "kind": "mod",
@@ -3969,6 +4364,16 @@
   },
   {
    "kind": "mod",
+   "id": 1400,
+   "mod": "FOX'S WEAPON SOUND MOD updated"
+  },
+  {
+   "kind": "mod",
+   "id": 1408,
+   "mod": "Manual Experience Multiplier for Each Skills (M.E.M.E.S)"
+  },
+  {
+   "kind": "mod",
    "id": 1411,
    "mod": "WTT- Heckler & Koch G3"
   },
@@ -3976,11 +4381,6 @@
    "kind": "mod",
    "id": 1412,
    "mod": "SPT-AKI Traditional Chinese (TW) Translation"
-  },
-  {
-   "kind": "mod",
-   "id": 1423,
-   "mod": "Immersive Compass (EN|RU)"
   },
   {
    "kind": "mod",
@@ -4014,6 +4414,11 @@
   },
   {
    "kind": "mod",
+   "id": 1446,
+   "mod": "HK416 16in Heavy Barrel Realism Compatibility"
+  },
+  {
+   "kind": "mod",
    "id": 1447,
    "mod": "Brainrot playlist"
   },
@@ -4039,6 +4444,11 @@
   },
   {
    "kind": "mod",
+   "id": 1460,
+   "mod": "REALISM COMPATIBILITY FOR MASSIVESOFT WEAPONS"
+  },
+  {
+   "kind": "mod",
    "id": 1464,
    "mod": "Mosin Extension Realism mod compatibility"
   },
@@ -4056,6 +4466,11 @@
    "kind": "mod",
    "id": 1471,
    "mod": "14.9 Arena Update Preview"
+  },
+  {
+   "kind": "mod",
+   "id": 1476,
+   "mod": "SiulSC's Aircraft"
   },
   {
    "kind": "mod",
@@ -4079,8 +4494,18 @@
   },
   {
    "kind": "mod",
+   "id": 1489,
+   "mod": "FALmonsta's Multicam Bundle SHITTYFIX to 3.8.x"
+  },
+  {
+   "kind": "mod",
    "id": 1490,
    "mod": "All The Seasons"
+  },
+  {
+   "kind": "mod",
+   "id": 1492,
+   "mod": "Penguin's Ushanka Emporium"
   },
   {
    "kind": "mod",
@@ -4111,6 +4536,11 @@
    "kind": "mod",
    "id": 1501,
    "mod": "Penguin's Doom Toy Collectables"
+  },
+  {
+   "kind": "mod",
+   "id": 1502,
+   "mod": "HD Vanilla Trader Pics"
   },
   {
    "kind": "mod",
@@ -4149,6 +4579,11 @@
   },
   {
    "kind": "mod",
+   "id": 1520,
+   "mod": "WTT - Patriot 1776"
+  },
+  {
+   "kind": "mod",
    "id": 1522,
    "mod": "REALISM COMPATIBILITY FOR KoKaZ93's AUG ATTATCHMENT PACK"
   },
@@ -4161,6 +4596,11 @@
    "kind": "mod",
    "id": 1524,
    "mod": "QBZ-97 5.56x45 Rifle"
+  },
+  {
+   "kind": "mod",
+   "id": 1528,
+   "mod": "Fin's AutoBalanceLevels but fixed"
   },
   {
    "kind": "mod",
@@ -4214,8 +4654,18 @@
   },
   {
    "kind": "mod",
+   "id": 1576,
+   "mod": "INFMEDS-Update BY WispsFlame"
+  },
+  {
+   "kind": "mod",
    "id": 1577,
    "mod": "Simple Translator"
+  },
+  {
+   "kind": "mod",
+   "id": 1578,
+   "mod": "ISO Submachine Gun"
   },
   {
    "kind": "mod",
@@ -4281,6 +4731,11 @@
    "kind": "mod",
    "id": 1604,
    "mod": "Stalker On Tarkov"
+  },
+  {
+   "kind": "mod",
+   "id": 1608,
+   "mod": "TasteTheRainbow Realism Patch"
   },
   {
    "kind": "mod",
@@ -4359,6 +4814,11 @@
   },
   {
    "kind": "mod",
+   "id": 1648,
+   "mod": "Old PK-06 Restoration"
+  },
+  {
+   "kind": "mod",
    "id": 1651,
    "mod": "Borkel's Crye Multicam"
   },
@@ -4419,6 +4879,11 @@
   },
   {
    "kind": "mod",
+   "id": 1670,
+   "mod": "Black Multicam Usec"
+  },
+  {
+   "kind": "mod",
    "id": 1671,
    "mod": "EMR  Bear"
   },
@@ -4449,8 +4914,18 @@
   },
   {
    "kind": "mod",
+   "id": 1685,
+   "mod": "Weasel Tweaks"
+  },
+  {
+   "kind": "mod",
    "id": 1686,
    "mod": "Realistic Bot Names"
+  },
+  {
+   "kind": "mod",
+   "id": 1687,
+   "mod": "Balaclava Eyeslot + Headwear Restrictions Removed"
   },
   {
    "kind": "mod",
@@ -4549,8 +5024,28 @@
   },
   {
    "kind": "mod",
+   "id": 1719,
+   "mod": "CCM - Sergiy Radius"
+  },
+  {
+   "kind": "mod",
    "id": 1722,
    "mod": "Rheinmetall LLM VarioRay tactical device"
+  },
+  {
+   "kind": "mod",
+   "id": 1725,
+   "mod": "Yilmaz"
+  },
+  {
+   "kind": "mod",
+   "id": 1726,
+   "mod": "Update 15 Backport"
+  },
+  {
+   "kind": "mod",
+   "id": 1727,
+   "mod": "WTT - M700 Long Action Realism Compatibility Patch"
   },
   {
    "kind": "mod",
@@ -4594,8 +5089,8 @@
   },
   {
    "kind": "mod",
-   "id": 1742,
-   "mod": "APEX/Titanfall theme resource pack(AIO)"
+   "id": 1741,
+   "mod": "WTT - Armory - M76"
   },
   {
    "kind": "mod",
@@ -4611,6 +5106,11 @@
    "kind": "mod",
    "id": 1746,
    "mod": "EMR Clothing Pack"
+  },
+  {
+   "kind": "mod",
+   "id": 1748,
+   "mod": "WTT - Armory - M249"
   },
   {
    "kind": "mod",
@@ -4631,6 +5131,11 @@
    "kind": "mod",
    "id": 1754,
    "mod": "WTT-M249 Realism Patch"
+  },
+  {
+   "kind": "mod",
+   "id": 1758,
+   "mod": "Coyote Trader (3.10.X Update)"
   },
   {
    "kind": "mod",
@@ -4656,11 +5161,6 @@
    "kind": "mod",
    "id": 1769,
    "mod": "HotDog & Nate's Chaos Queen (Bluey themed) AK-103 Mag!"
-  },
-  {
-   "kind": "mod",
-   "id": 1770,
-   "mod": "HotDog's Content Pack"
   },
   {
    "kind": "mod",
@@ -4694,6 +5194,11 @@
   },
   {
    "kind": "mod",
+   "id": 1793,
+   "mod": "M81 Gear Pack"
+  },
+  {
+   "kind": "mod",
    "id": 1794,
    "mod": "More Cases"
   },
@@ -4714,8 +5219,23 @@
   },
   {
    "kind": "mod",
+   "id": 1801,
+   "mod": "Summer and Autumn Clothing"
+  },
+  {
+   "kind": "mod",
+   "id": 1805,
+   "mod": "Alternative Trader Pics- Feminization"
+  },
+  {
+   "kind": "mod",
    "id": 1806,
    "mod": "Alternative Trader Pics- Feminization Anime version"
+  },
+  {
+   "kind": "mod",
+   "id": 1807,
+   "mod": "Alternative Trader Pics- Feminization Art version"
   },
   {
    "kind": "mod",
@@ -4739,8 +5259,23 @@
   },
   {
    "kind": "mod",
+   "id": 1814,
+   "mod": "Head Hunter (RUS)"
+  },
+  {
+   "kind": "mod",
+   "id": 1815,
+   "mod": "VR Gloves"
+  },
+  {
+   "kind": "mod",
    "id": 1816,
    "mod": "(RU) VIPER"
+  },
+  {
+   "kind": "mod",
+   "id": 1820,
+   "mod": "Item Finder Console"
   },
   {
    "kind": "mod",
@@ -4806,11 +5341,6 @@
    "kind": "mod",
    "id": 1845,
    "mod": "HotDog's 5.56x50mmE Adar Cartridge"
-  },
-  {
-   "kind": "mod",
-   "id": 1846,
-   "mod": "Reaper's Kaws-llectables"
   },
   {
    "kind": "mod",
@@ -5014,6 +5544,11 @@
   },
   {
    "kind": "mod",
+   "id": 1956,
+   "mod": "Choice Bound"
+  },
+  {
+   "kind": "mod",
    "id": 1957,
    "mod": "Arknights theme resource pack"
   },
@@ -5031,6 +5566,11 @@
    "kind": "mod",
    "id": 1975,
    "mod": "SPT inRaid Timer"
+  },
+  {
+   "kind": "mod",
+   "id": 1980,
+   "mod": "Extended Mags"
   },
   {
    "kind": "mod",
@@ -5061,6 +5601,11 @@
    "kind": "mod",
    "id": 2001,
    "mod": "UNP [RU.Loc.] - Ref - SPT Friendly Quests"
+  },
+  {
+   "kind": "mod",
+   "id": 2002,
+   "mod": "WTT - Armory - AN-94"
   },
   {
    "kind": "mod",
@@ -5101,6 +5646,11 @@
    "kind": "mod",
    "id": 2029,
    "mod": "AllTracers"
+  },
+  {
+   "kind": "mod",
+   "id": 2036,
+   "mod": "Custom Hideout Poster Replacer"
   },
   {
    "kind": "mod",
@@ -5194,6 +5744,16 @@
   },
   {
    "kind": "mod",
+   "id": 2128,
+   "mod": "Boxes at ReF (BARF) again"
+  },
+  {
+   "kind": "mod",
+   "id": 2131,
+   "mod": "Really Real Bots (3.10.5 SAIN Preset)"
+  },
+  {
+   "kind": "mod",
    "id": 2133,
    "mod": "Oops! All Boss PMCs!"
   },
@@ -5206,6 +5766,11 @@
    "kind": "mod",
    "id": 2141,
    "mod": "BrainTweaks"
+  },
+  {
+   "kind": "mod",
+   "id": 2143,
+   "mod": "Echoes of Tarkov - Requisitions"
   },
   {
    "kind": "mod",
@@ -5354,11 +5919,6 @@
   },
   {
    "kind": "mod",
-   "id": 2285,
-   "mod": "Better Fast Fire"
-  },
-  {
-   "kind": "mod",
    "id": 2286,
    "mod": "ShashaCZ - CS Knives"
   },
@@ -5426,11 +5986,6 @@
    "kind": "mod",
    "id": 2317,
    "mod": "Usenko TR-76 Geist Assualt Rifle"
-  },
-  {
-   "kind": "mod",
-   "id": 2322,
-   "mod": "SamSWAT Optics - SPT Realism Patch"
   },
   {
    "kind": "mod",
@@ -5872,1099 +6427,43 @@
  "missing_deps": [
   {
    "kind": "mod",
-   "id": 1180,
-   "mod": "SamSWAT's Fire Support - Arys Reloaded",
-   "version": "2.3.0",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
+   "id": 2485,
+   "mod": "ISB Special Forces",
+   "version": "1.0.0",
+   "dep_id": 2478,
+   "dep_name": "ISB Aishi"
   },
   {
    "kind": "mod",
-   "id": 1180,
-   "mod": "SamSWAT's Fire Support - Arys Reloaded",
-   "version": "2.3.1",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
+   "id": 2485,
+   "mod": "ISB Special Forces",
+   "version": "1.0.1",
+   "dep_id": 2478,
+   "dep_name": "ISB Aishi"
   },
   {
    "kind": "mod",
-   "id": 1180,
-   "mod": "SamSWAT's Fire Support - Arys Reloaded",
-   "version": "2.3.2",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1180,
-   "mod": "SamSWAT's Fire Support - Arys Reloaded",
-   "version": "2.3.3",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1180,
-   "mod": "SamSWAT's Fire Support - Arys Reloaded",
-   "version": "2.3.4",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1292,
-   "mod": "SamSWAT's Helicopter Crash Sites - Arys Reloaded",
-   "version": "2.4.0",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1292,
-   "mod": "SamSWAT's Helicopter Crash Sites - Arys Reloaded",
-   "version": "2.5.0",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1292,
-   "mod": "SamSWAT's Helicopter Crash Sites - Arys Reloaded",
-   "version": "2.5.1",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 1292,
-   "mod": "SamSWAT's Helicopter Crash Sites - Arys Reloaded",
-   "version": "2.5.2",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2037,
-   "mod": "Colored Tracers",
-   "version": "2.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2037,
-   "mod": "Colored Tracers",
-   "version": "2.1.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2037,
-   "mod": "Colored Tracers",
-   "version": "2.1.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2037,
-   "mod": "Colored Tracers",
-   "version": "3.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.3",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.4",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.5",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.6",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.7",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.0.8",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2101,
-   "mod": "SPT Leaderboard",
-   "version": "5.1.0",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2152,
-   "mod": "SJX Elite Stims Addon for Consumables Galore",
+   "id": 2485,
+   "mod": "ISB Special Forces",
    "version": "1.0.2",
-   "dep_id": 1237,
-   "dep_name": "Consumables Galore"
+   "dep_id": 2478,
+   "dep_name": "ISB Aishi"
   },
   {
    "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "2.0.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.2",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.3",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.4",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.5",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.6",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.7",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2226,
-   "mod": "[TTC] Tarkov Trading Cards",
-   "version": "3.0.8",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.6.11",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.6.12",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.6.13",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.7.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.7.1",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2341,
-   "mod": "Raid Record",
-   "version": "0.7.2",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2342,
-   "mod": "UNTAR Go Home!",
-   "version": "3.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2342,
-   "mod": "UNTAR Go Home!",
-   "version": "3.0.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2342,
-   "mod": "UNTAR Go Home!",
-   "version": "3.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2342,
-   "mod": "UNTAR Go Home!",
-   "version": "3.1.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2419,
-   "mod": "Amonya - Ammo Loving Trader & Quester",
-   "version": "1.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2419,
-   "mod": "Amonya - Ammo Loving Trader & Quester",
+   "id": 2716,
+   "mod": "The balance of gaining prestige",
    "version": "1.0.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
+   "dep_id": 2540,
+   "dep_name": "Content Backport - Prestiges"
   },
   {
    "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.0.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.0",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.1",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.2",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2427,
-   "mod": "RUAF Come Home!",
-   "version": "1.1.2",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.2",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.3",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.4",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.5",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.6",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.7",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.8",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.9",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.10",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.11",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.12",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.13",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2430,
-   "mod": "ODT's Item Info - SPT 4.0",
-   "version": "2.0.14",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2466,
-   "mod": "Rarities",
-   "version": "1.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2565,
-   "mod": "SPT Item Creator",
-   "version": "0.1.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2565,
-   "mod": "SPT Item Creator",
-   "version": "0.1.1",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2588,
-   "mod": "MassivesoftWeapons",
-   "version": "1.1.0",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2588,
-   "mod": "MassivesoftWeapons",
-   "version": "1.1.1",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2588,
-   "mod": "MassivesoftWeapons",
-   "version": "1.1.2",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2590,
-   "mod": "SaintDeerWeapons",
-   "version": "1.0.0",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2607,
-   "mod": "Easy Game",
-   "version": "1.0.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2607,
-   "mod": "Easy Game",
-   "version": "1.1.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2609,
-   "mod": "SuntionCore.SPTExtensions",
-   "version": "0.1.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2609,
-   "mod": "SuntionCore.SPTExtensions",
-   "version": "1.0.0",
-   "dep_id": 2600,
-   "dep_name": "SuntionCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2620,
-   "mod": "RZCustomItemTiers",
-   "version": "1.0.1",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2620,
-   "mod": "RZCustomItemTiers",
+   "id": 2716,
+   "mod": "The balance of gaining prestige",
    "version": "1.0.2",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2637,
-   "mod": "RZEssentials",
-   "version": "1.0.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2637,
-   "mod": "RZEssentials",
-   "version": "1.1.0",
-   "dep_id": 1090,
-   "dep_name": "Color Converter API"
-  },
-  {
-   "kind": "mod",
-   "id": 2678,
-   "mod": "Toxic Bullet",
-   "version": "1.0.1",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2678,
-   "mod": "Toxic Bullet",
-   "version": "1.1.0",
-   "dep_id": 2587,
-   "dep_name": "MassivesoftCore"
-  },
-  {
-   "kind": "mod",
-   "id": 2762,
-   "mod": "Ghost Voice",
-   "version": "1.3.0",
-   "dep_id": 1277,
-   "dep_name": "WTT - Head and Voice Selector"
-  },
-  {
-   "kind": "mod",
-   "id": 2762,
-   "mod": "Ghost Voice",
-   "version": "1.3.1",
-   "dep_id": 1277,
-   "dep_name": "WTT - Head and Voice Selector"
-  },
-  {
-   "kind": "mod",
-   "id": 2762,
-   "mod": "Ghost Voice",
-   "version": "1.3.2",
-   "dep_id": 1277,
-   "dep_name": "WTT - Head and Voice Selector"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.0",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.2",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.3",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.4",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.5",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.6",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.7",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2791,
-   "mod": "Tylevo's Tactical Service Control",
-   "version": "1.0.8",
-   "dep_id": 1426,
-   "dep_name": "UnityToolkit"
-  },
-  {
-   "kind": "mod",
-   "id": 2815,
-   "mod": "ODIN - THE MERCENARY",
-   "version": "1.6.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2815,
-   "mod": "ODIN - THE MERCENARY",
-   "version": "1.7.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2817,
-   "mod": "The Quartermaster",
-   "version": "1.3.0",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2817,
-   "mod": "The Quartermaster",
-   "version": "1.4.0",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2817,
-   "mod": "The Quartermaster",
-   "version": "1.4.1",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2817,
-   "mod": "The Quartermaster",
-   "version": "1.4.2",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2817,
-   "mod": "The Quartermaster",
-   "version": "1.4.3",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "1.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "1.0.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.0",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.1",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.2",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.0.2",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.1.0",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.2.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.2.0",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.2.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2820,
-   "mod": "Wedge",
-   "version": "2.2.1",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2843,
-   "mod": "Blackout",
-   "version": "1.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2843,
-   "mod": "Blackout",
-   "version": "1.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2843,
-   "mod": "Blackout",
-   "version": "2.0.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2843,
-   "mod": "Blackout",
-   "version": "2.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2843,
-   "mod": "Blackout",
-   "version": "2.1.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.1.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.1.0",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.1.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.1.1",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.0",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.0",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.1",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.1",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.2",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.2",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.3",
-   "dep_id": 2426,
-   "dep_name": "MoreBotsAPI"
-  },
-  {
-   "kind": "mod",
-   "id": 2866,
-   "mod": "MANIMAL'S ICEBREAKER BACKPORT[BETA]",
-   "version": "0.2.3",
-   "dep_id": 2511,
-   "dep_name": "WTT - Black Division [REDACTED] Home"
-  },
-  {
-   "kind": "mod",
-   "id": 2875,
-   "mod": "WTT - Clothing and Gear [BETA]",
-   "version": "1.0.0+pre2",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2880,
-   "mod": "Project Arsenal",
-   "version": "0.0.2",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
-  },
-  {
-   "kind": "mod",
-   "id": 2880,
-   "mod": "Project Arsenal",
-   "version": "0.0.2",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2880,
-   "mod": "Project Arsenal",
-   "version": "0.0.3",
-   "dep_id": 2246,
-   "dep_name": "WTT- Armory"
-  },
-  {
-   "kind": "mod",
-   "id": 2880,
-   "mod": "Project Arsenal",
-   "version": "0.0.3",
-   "dep_id": 2803,
-   "dep_name": "ItemGen"
+   "dep_id": 2540,
+   "dep_name": "Content Backport - Prestiges"
   }
  ],
  "at_risk_deps": [],
@@ -6979,31 +6478,49 @@
   {
    "id": 2310,
    "name": "WTT - CommonLib",
-   "required_by": 94,
+   "required_by": 99,
    "obtainable": true
   },
   {
    "id": 902,
    "name": "BigBrain",
-   "required_by": 15,
+   "required_by": 19,
    "obtainable": true
   },
   {
    "id": 827,
    "name": "Waypoints - Expanded Navmesh",
-   "required_by": 9,
+   "required_by": 10,
    "obtainable": true
   },
   {
    "id": 2512,
    "name": "WTT - Content Backport",
-   "required_by": 9,
+   "required_by": 10,
+   "obtainable": true
+  },
+  {
+   "id": 2426,
+   "name": "MoreBotsAPI",
+   "required_by": 8,
    "obtainable": true
   },
   {
    "id": 791,
    "name": "SAIN - Solarint's AI Modifications - Full AI Combat System Replacement",
    "required_by": 6,
+   "obtainable": true
+  },
+  {
+   "id": 1090,
+   "name": "Color Converter API",
+   "required_by": 6,
+   "obtainable": true
+  },
+  {
+   "id": 1426,
+   "name": "UnityToolkit",
+   "required_by": 5,
    "obtainable": true
   },
   {
@@ -7015,6 +6532,18 @@
   {
    "id": 416,
    "name": "SPT Realism Mod",
+   "required_by": 4,
+   "obtainable": true
+  },
+  {
+   "id": 2600,
+   "name": "SuntionCore",
+   "required_by": 4,
+   "obtainable": true
+  },
+  {
+   "id": 2326,
+   "name": "Project Fika",
    "required_by": 4,
    "obtainable": true
   },
@@ -7031,8 +6560,20 @@
    "obtainable": true
   },
   {
-   "id": 2326,
-   "name": "Project Fika",
+   "id": 1237,
+   "name": "Consumables Galore",
+   "required_by": 3,
+   "obtainable": true
+  },
+  {
+   "id": 2246,
+   "name": "WTT- Armory",
+   "required_by": 3,
+   "obtainable": true
+  },
+  {
+   "id": 2587,
+   "name": "MassivesoftCore",
    "required_by": 3,
    "obtainable": true
   },
@@ -7061,6 +6602,18 @@
    "obtainable": true
   },
   {
+   "id": 2803,
+   "name": "ItemGen",
+   "required_by": 2,
+   "obtainable": true
+  },
+  {
+   "id": 2511,
+   "name": "WTT - Black Division [REDACTED] Home",
+   "required_by": 2,
+   "obtainable": true
+  },
+  {
    "id": 1594,
    "name": "APBS - Acid's Progressive Bot System",
    "required_by": 2,
@@ -7071,61 +6624,7 @@
    "name": "ORBIT",
    "required_by": 2,
    "obtainable": true
-  },
-  {
-   "id": 1125,
-   "name": "Tactical Gear Component",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 1025,
-   "name": "Painter",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 2386,
-   "name": "Use Items Anywhere",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 2567,
-   "name": "CloudSix - Volumetric Clouds",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 1873,
-   "name": "Bot Callsigns - Reloaded",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 650,
-   "name": "Hephaestus",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 2206,
-   "name": "Item Preview QoL + screenshots",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 812,
-   "name": "Looting Bots",
-   "required_by": 1,
-   "obtainable": true
-  },
-  {
-   "id": 1109,
-   "name": "Questing Bots",
-   "required_by": 1,
-   "obtainable": true
   }
  ],
- "generated_at": "2026-08-09T19:28:34.742272+00:00"
+ "generated_at": "2026-08-10T05:06:44.816757+00:00"
 }
